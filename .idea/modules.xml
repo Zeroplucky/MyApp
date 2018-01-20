@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MyApp.iml" filepath="$PROJECT_DIR$/MyApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/emotionlib_/emotionlib_.iml" filepath="$PROJECT_DIR$/emotionlib_/emotionlib_.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gsyvideolib_/gsyvideolib_.iml" filepath="$PROJECT_DIR$/gsyvideolib_/gsyvideolib_.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sdklib_/sdklib_.iml" filepath="$PROJECT_DIR$/sdklib_/sdklib_.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tbslib_/tbslib_.iml" filepath="$PROJECT_DIR$/tbslib_/tbslib_.iml" />
+    </modules>
+  </component>
+</project>

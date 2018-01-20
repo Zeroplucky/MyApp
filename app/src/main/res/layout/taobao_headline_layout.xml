@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
+
+
+        <ViewSwitcher
+            android:id="@+id/tao_viewswitcher"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="0.5dp"
+            android:layout_weight="1">
+
+            <include
+                android:id="@+id/subView1"
+                layout="@layout/tao_headline_holder" />
+
+            <include
+                android:id="@+id/subView2"
+                layout="@layout/tao_headline_holder" />
+
+        </ViewSwitcher>
+
+    </LinearLayout>
+</RelativeLayout>

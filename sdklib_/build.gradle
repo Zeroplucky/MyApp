@@ -1,0 +1,108 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/rxjava.properties'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    // Android support
+    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.supportLibraryVersion"
+    compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:multidex:1.0.1'
+
+    // RxJava2
+    compile "io.reactivex.rxjava2:rxjava:2.0.1"
+    compile "io.reactivex.rxjava2:rxandroid:2.0.1"
+
+    // Glide
+    compile "com.github.bumptech.glide:glide:3.6.1"
+    compile "com.github.bumptech.glide:okhttp-integration:1.3.1"
+    compile "jp.wasabeef:glide-transformations:2.0.1"
+
+    //fragmentation
+    compile "me.yokeyword:fragmentation:1.1.6"
+
+    //circle imageview
+    compile "de.hdodenhof:circleimageview:2.1.0"
+
+    //BaseRecyclerViewAdapterHelper
+    compile "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22"
+
+    //SwitchButton
+    compile "com.kyleduo.switchbutton:library:1.4.6"
+
+    //PhotoView
+    compile "com.bm.photoview:library:1.4.1"
+
+    //permissions2
+    compile "com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar"
+    //permissions1
+//    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
+    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+
+    //Bugly
+    compile 'com.tencent.bugly:crashreport:latest.release'
+
+    //autolayout
+    compile 'com.zhy:autolayout:1.4.5'
+
+    //AutoInstaller
+    // compile 'com.github.a-voyager:AutoInstaller:v1.0'
+
+    //Gson
+    compile 'com.google.code.gson:gson:2.2.4'
+
+    //性能监控
+    compile 'com.github.markzhai:blockcanary-android:1.5.0'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+
+    //状态栏
+    // compile 'com.gyf.barlibrary:barlibrary:2.3.0'
+    compile 'com.jaeger.statusbarutil:library:1.4.0'
+
+
+    compile('com.roughike:bottom-bar:2.3.1') {
+        exclude module: 'design'
+    }
+
+    //桌面标记
+    compile "me.leolin:ShortcutBadger:1.1.19@aar"
+
+    //刷新框架
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-5'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-5'//没有使用特殊Header，可以不加这行
+}

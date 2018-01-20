@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.example.okgo_http.Demo1Activity">
+
+    <include layout="@layout/toor_bar" />
+
+    <com.example.widget.TaoHeadline
+        android:id="@+id/tao_header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="#fff" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#b1b1b1" />
+
+    <Button
+        android:id="@+id/file_path"
+        android:layout_width="1000px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="点击下载APK"
+        android:textSize="42px" />
+
+    <Button
+        android:id="@+id/text_requst"
+        android:layout_width="1000px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="请求数据"
+        android:textSize="42px" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</com.zhy.autolayout.AutoLinearLayout>
