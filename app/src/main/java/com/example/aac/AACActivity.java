@@ -89,9 +89,11 @@ public class AACActivity extends BaseActivity {
                         data.clear();
                         for (int i = 0; i < riverSegments.size(); i++) {
                             RiverSegment.DetailBean.RiverSegmentsBean riverSegmentsBean = riverSegments.get(i);
-                            for (int j = 0; j < riverSegmentsBean.getChild().size(); j++) {
-                                RiverSegment.DetailBean.RiverSegmentsBean.ChildBean childBean = riverSegmentsBean.getChild().get(j);
-                                riverSegmentsBean.addSubItem(childBean);
+                            if (riverSegmentsBean.getChild()!=null){
+                                for (int j = 0; j < riverSegmentsBean.getChild().size(); j++) {
+                                    RiverSegment.DetailBean.RiverSegmentsBean.ChildBean childBean = riverSegmentsBean.getChild().get(j);
+                                    riverSegmentsBean.addSubItem(childBean);
+                                }
                             }
                             data.add(riverSegmentsBean);
                         }

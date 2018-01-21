@@ -9,10 +9,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/emotionlib_" />
-            <option value="$PROJECT_DIR$/gsyvideolib_" />
-            <option value="$PROJECT_DIR$/sdklib_" />
-            <option value="$PROJECT_DIR$/tbslib_" />
+            <option value="$PROJECT_DIR$/emotionlib" />
+            <option value="$PROJECT_DIR$/gsyvideolib" />
+            <option value="$PROJECT_DIR$/sdklib" />
+            <option value="$PROJECT_DIR$/tbslib" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

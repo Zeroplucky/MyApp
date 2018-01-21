@@ -53,8 +53,8 @@ public class Demo2Activity extends BaseMvpAppCompatActivity<IDemo2View, Demo2Pre
         super.onResume();
         getMvpPresenter().request(1);
         //观察ACIVITY是否内存泄露
-        RefWatcher refWatcher = BaseApp.getRefWatcher(this);
-        refWatcher.watch(this);
+//        RefWatcher refWatcher = BaseApp.getRefWatcher(this);
+//        refWatcher.watch(this);
     }
 
 

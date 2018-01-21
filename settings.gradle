@@ -1,1 +1,1 @@
-include ':app', ':sdklib_', ':emotionlib_', ':tbslib_', ':gsyvideolib_'
+include ':app', ':sdklib', ':emotionlib', ':tbslib', ':gsyvideolib'
