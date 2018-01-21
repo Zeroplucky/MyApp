@@ -3,12 +3,14 @@ package com.example.aac;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.example.aac.adapter.ExpandableItemAdapter;
+import com.example.aac.adapter.HeaderAdapter;
 import com.example.aac.bean.AdInfo;
 import com.example.aac.bean.RiverSegment;
 import com.example.aac.viewmodel.AdInfoViewModel;
@@ -34,6 +36,7 @@ public class AACActivity extends BaseActivity {
     private AdInfoViewModel adInfoViewModel;
     private RiverSegmentVM riverSegmentVM;
     private ExpandableItemAdapter adapter;
+    private HeaderAdapter headerAdapter;
     private List<MultiItemEntity> data = new ArrayList<>();
 
     @Override
@@ -50,6 +53,10 @@ public class AACActivity extends BaseActivity {
     @Override
     protected void initData() {
         super.initData();
+        getAdInfo();
+        headerAdapter = new HeaderAdapter(null);
+        headerRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 4));
+        headerRecyclerView.setAdapter(headerAdapter);
         getRiverSegment("");
         adapter = new ExpandableItemAdapter(data);
         contentRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
@@ -64,15 +71,12 @@ public class AACActivity extends BaseActivity {
                 if (adInfo != null) {
                     List<AdInfo.DetailBean.TownBean> adList = adInfo.getDetail().getAdList();
                     if (adList != null) {
-                        adList.add(0, new AdInfo.DetailBean.TownBean("区级", true));
-
-                        if (adList.size() >= 15) {
-                            List<AdInfo.DetailBean.TownBean> townBeans = adList.subList(0, 15);
-                            List<Object> multiTypeData = new ArrayList<>();
-                            multiTypeData.addAll(townBeans);
-
-
-                        }
+//                        adList.add(0, new AdInfo.DetailBean.TownBean("区级", true));
+//                        if (adList.size() >= 15) {
+//                            List<AdInfo.DetailBean.TownBean> townBeans = adList.subList(0, 15);
+                        headerAdapter.setNewData(adList);
+//                            headerAdapter.notifyDataSetChanged();
+//                        }
                     }
                 }
             }
@@ -89,7 +93,7 @@ public class AACActivity extends BaseActivity {
                         data.clear();
                         for (int i = 0; i < riverSegments.size(); i++) {
                             RiverSegment.DetailBean.RiverSegmentsBean riverSegmentsBean = riverSegments.get(i);
-                            if (riverSegmentsBean.getChild()!=null){
+                            if (riverSegmentsBean.getChild() != null) {
                                 for (int j = 0; j < riverSegmentsBean.getChild().size(); j++) {
                                     RiverSegment.DetailBean.RiverSegmentsBean.ChildBean childBean = riverSegmentsBean.getChild().get(j);
                                     riverSegmentsBean.addSubItem(childBean);
