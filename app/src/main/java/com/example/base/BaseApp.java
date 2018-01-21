@@ -37,7 +37,7 @@ public class BaseApp extends MultiDexApplication {
 
     static WindowManager mWindowManager;
     static Context mAppContext;
-    private RefWatcher refWatcher;
+//    private RefWatcher refWatcher;
 
     @Override
     public void onCreate() {
@@ -45,7 +45,7 @@ public class BaseApp extends MultiDexApplication {
         MultiDex.install(this);
         mAppContext = this;
 //        BlockCanary.install(this, new AppContext()).start();
-        refWatcher = setupLeakCanary();
+//        refWatcher = setupLeakCanary();
         mWindowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         initOkGo();
         initHuanXin();
@@ -133,17 +133,17 @@ public class BaseApp extends MultiDexApplication {
         return mWindowManager.getDefaultDisplay().getWidth();
     }
 
-    private RefWatcher setupLeakCanary() {
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            return RefWatcher.DISABLED;
-        }
-        return LeakCanary.install(this);
-    }
+//    private RefWatcher setupLeakCanary() {
+//        if (LeakCanary.isInAnalyzerProcess(this)) {
+//            return RefWatcher.DISABLED;
+//        }
+//        return LeakCanary.install(this);
+//    }
 
-    public static RefWatcher getRefWatcher(Context context) {
-        BaseApp leakApplication = (BaseApp) context.getApplicationContext();
-        return leakApplication.refWatcher;
-    }
+//    public static RefWatcher getRefWatcher(Context context) {
+//        BaseApp leakApplication = (BaseApp) context.getApplicationContext();
+//        return leakApplication.refWatcher;
+//    }
 
     public static Context getAppContext() {
         return mAppContext;
