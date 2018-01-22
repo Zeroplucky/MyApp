@@ -22,6 +22,7 @@ import com.example.huanxinim.presenter.ILoginPresenter;
 import com.example.huanxinim.presenter.impl.LoginPresenterImpl;
 import com.example.huanxinim.view.ILoginView;
 import com.example.huanxinim.view.IMActivity;
+import com.example.huanxinim.widget.PSEditText;
 import com.example.widget.WaitingView;
 import com.hyphenate.chat.EMClient;
 import com.jaeger.library.StatusBarUtil;
@@ -35,7 +36,7 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     @BindView(R.id.user_name)
     EditText mUserName;
     @BindView(R.id.password)
-    EditText mPassword;
+    PSEditText mPassword;
     @BindView(R.id.login)
     TextView mLogin;
     @BindView(R.id.new_user)
