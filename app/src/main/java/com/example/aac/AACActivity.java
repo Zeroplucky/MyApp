@@ -71,12 +71,7 @@ public class AACActivity extends BaseActivity {
                 if (adInfo != null) {
                     List<AdInfo.DetailBean.TownBean> adList = adInfo.getDetail().getAdList();
                     if (adList != null) {
-//                        adList.add(0, new AdInfo.DetailBean.TownBean("区级", true));
-//                        if (adList.size() >= 15) {
-//                            List<AdInfo.DetailBean.TownBean> townBeans = adList.subList(0, 15);
                         headerAdapter.setNewData(adList);
-//                            headerAdapter.notifyDataSetChanged();
-//                        }
                     }
                 }
             }

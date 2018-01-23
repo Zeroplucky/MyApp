@@ -117,7 +117,7 @@ public class VerticalTextview extends TextSwitcher implements ViewSwitcher.ViewF
     @Override
     public View makeView() {
         TextView t = new TextView(mContext);
-        t.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
+        t.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
         t.setMaxLines(1);
         t.setPadding(mPadding, mPadding, mPadding, mPadding);
         t.setTextColor(textColor);

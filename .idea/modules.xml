@@ -3,14 +3,20 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyApp.iml" filepath="$PROJECT_DIR$/MyApp.iml" />
+      <module fileurl="file://E:\myworkspace\MyApp\MyApp.iml" filepath="E:\myworkspace\MyApp\MyApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://E:\myworkspace\MyApp\app\app.iml" filepath="E:\myworkspace\MyApp\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/emotionlib/emotionlib.iml" filepath="$PROJECT_DIR$/emotionlib/emotionlib.iml" />
+      <module fileurl="file://E:\myworkspace\MyApp\emotionlib\emotionlib.iml" filepath="E:\myworkspace\MyApp\emotionlib\emotionlib.iml" />
       <module fileurl="file://D:\MyApp\emotionlib_\emotionlib_.iml" filepath="D:\MyApp\emotionlib_\emotionlib_.iml" />
       <module fileurl="file://$PROJECT_DIR$/gsyvideolib/gsyvideolib.iml" filepath="$PROJECT_DIR$/gsyvideolib/gsyvideolib.iml" />
+      <module fileurl="file://E:\myworkspace\MyApp\gsyvideolib\gsyvideolib.iml" filepath="E:\myworkspace\MyApp\gsyvideolib\gsyvideolib.iml" />
       <module fileurl="file://D:\MyApp\gsyvideolib_\gsyvideolib_.iml" filepath="D:\MyApp\gsyvideolib_\gsyvideolib_.iml" />
       <module fileurl="file://$PROJECT_DIR$/sdklib/sdklib.iml" filepath="$PROJECT_DIR$/sdklib/sdklib.iml" />
+      <module fileurl="file://E:\myworkspace\MyApp\sdklib\sdklib.iml" filepath="E:\myworkspace\MyApp\sdklib\sdklib.iml" />
       <module fileurl="file://D:\MyApp\sdklib_\sdklib_.iml" filepath="D:\MyApp\sdklib_\sdklib_.iml" />
       <module fileurl="file://$PROJECT_DIR$/tbslib/tbslib.iml" filepath="$PROJECT_DIR$/tbslib/tbslib.iml" />
+      <module fileurl="file://E:\myworkspace\MyApp\tbslib\tbslib.iml" filepath="E:\myworkspace\MyApp\tbslib\tbslib.iml" />
       <module fileurl="file://D:\MyApp\tbslib_\tbslib_.iml" filepath="D:\MyApp\tbslib_\tbslib_.iml" />
     </modules>
   </component>
