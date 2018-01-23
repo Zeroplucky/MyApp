@@ -1,71 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<declare-styleable name="LoadingView">
-		<attr name="outerCircleRadius" format="dimension|reference"/>
-		<attr name="outerCircleColor" format="color|reference"/>
-		<attr name="innerTriangleRadius" format="dimension|reference"/>
-		<attr name="innerTriangleColor" format="color|reference"/>
-		<attr name="backgroundColor" format="color|reference"/>
-		<attr name="isNeedBackground" format="boolean"/>
-		<attr name="strokeWidth" format="dimension|reference"/>
-	</declare-styleable>
+    <declare-styleable name="LoadingView">
+        <attr name="outerCircleRadius" format="dimension|reference" />
+        <attr name="outerCircleColor" format="color|reference" />
+        <attr name="innerTriangleRadius" format="dimension|reference" />
+        <attr name="innerTriangleColor" format="color|reference" />
+        <attr name="backgroundColor" format="color|reference" />
+        <attr name="isNeedBackground" format="boolean" />
+        <attr name="strokeWidth" format="dimension|reference" />
+    </declare-styleable>
 
 
-	<!-- 按钮自定义属性 -->
-	<declare-styleable name="StateButton">
-		<!--text color-->
-		<attr name="normalTextColor" format="color|reference"/>
-		<attr name="pressedTextColor" format="color|reference"/>
-		<attr name="unableTextColor" format="color|reference"/>
+    <!-- 按钮自定义属性 -->
+    <declare-styleable name="StateButton">
+        <!--text color-->
+        <attr name="normalTextColor" format="color|reference" />
+        <attr name="pressedTextColor" format="color|reference" />
+        <attr name="unableTextColor" format="color|reference" />
 
-		<!--stroke width and color, dash width, dash gap-->
-		<attr name="strokeDashWidth" format="dimension|reference"/>
-		<attr name="strokeDashGap" format="dimension|reference"/>
-		<attr name="normalStrokeWidth" format="dimension|reference"/>
-		<attr name="pressedStrokeWidth" format="dimension|reference"/>
-		<attr name="unableStrokeWidth" format="dimension|reference"/>
-		<attr name="normalStrokeColor" format="color|reference"/>
-		<attr name="pressedStrokeColor" format="color|reference"/>
-		<attr name="unableStrokeColor" format="color|reference"/>
+        <!--stroke width and color, dash width, dash gap-->
+        <attr name="strokeDashWidth" format="dimension|reference" />
+        <attr name="strokeDashGap" format="dimension|reference" />
+        <attr name="normalStrokeWidth" format="dimension|reference" />
+        <attr name="pressedStrokeWidth" format="dimension|reference" />
+        <attr name="unableStrokeWidth" format="dimension|reference" />
+        <attr name="normalStrokeColor" format="color|reference" />
+        <attr name="pressedStrokeColor" format="color|reference" />
+        <attr name="unableStrokeColor" format="color|reference" />
 
-		<!--background color-->
-		<attr name="normalBackgroundColor" format="color|reference"/>
-		<attr name="pressedBackgroundColor" format="color|reference"/>
-		<attr name="unableBackgroundColor" format="color|reference"/>
+        <!--background color-->
+        <attr name="normalBackgroundColor" format="color|reference" />
+        <attr name="pressedBackgroundColor" format="color|reference" />
+        <attr name="unableBackgroundColor" format="color|reference" />
 
-		<!--background radius-->
-		<attr name="radius" format="dimension|reference"/>
-		<attr name="round" format="boolean|reference"/>
+        <!--background radius-->
+        <attr name="radius" format="dimension|reference" />
+        <attr name="round" format="boolean|reference" />
 
-		<!--animation duration-->
-		<attr name="animationDuration" format="integer|reference"/>
-	</declare-styleable>
+        <!--animation duration-->
+        <attr name="animationDuration" format="integer|reference" />
+    </declare-styleable>
 
 
-	<declare-styleable name="ScrollingViewHeaderLayout">
-		<attr name="headVisibleMinHeight" format="dimension"/>
-		<attr name="isSeriesScroll" format="boolean"/>
-		<attr name="headScrollMode">
-			<enum name="snap" value="1"/>
-			<enum name="normal" value="2"/>
-		</attr>
-	</declare-styleable>
+    <declare-styleable name="ScrollingViewHeaderLayout">
+        <attr name="headVisibleMinHeight" format="dimension" />
+        <attr name="isSeriesScroll" format="boolean" />
+        <attr name="headScrollMode">
+            <enum name="snap" value="1" />
+            <enum name="normal" value="2" />
+        </attr>
+    </declare-styleable>
 
-	<declare-styleable name="ScrollingViewHeaderLayout_Layout">
-		<attr name="isHeaderLayout" format="boolean"/>
-		<attr name="isScrollingLayout" format="boolean"/>
-		<attr name="isFlexibleLayout" format="boolean"/>
-		<attr name="flexibleRatio" format="float"/>
-		<attr name="isGradientLayout" format="boolean"/>
-		<attr name="gradientColor" format="color"/>
-	</declare-styleable>
+    <declare-styleable name="ScrollingViewHeaderLayout_Layout">
+        <attr name="isHeaderLayout" format="boolean" />
+        <attr name="isScrollingLayout" format="boolean" />
+        <attr name="isFlexibleLayout" format="boolean" />
+        <attr name="flexibleRatio" format="float" />
+        <attr name="isGradientLayout" format="boolean" />
+        <attr name="gradientColor" format="color" />
+    </declare-styleable>
 
-	<!--自定义密码输入框-->
-	<declare-styleable name="PSEditText">
-		<attr name="drawable_hide" format="integer"/>
-		<attr name="drawable_show" format="integer"/>
-		<attr name="tint_color" format="color"/>
-		<attr name="additionalTouchTargetSize" format="dimension"/>
-	</declare-styleable>
+    <!--自定义密码输入框-->
+    <declare-styleable name="PSEditText">
+        <attr name="drawable_hide" format="integer" />
+        <attr name="drawable_show" format="integer" />
+        <attr name="tint_color" format="color" />
+        <attr name="additionalTouchTargetSize" format="dimension" />
+    </declare-styleable>
+
 </resources>
