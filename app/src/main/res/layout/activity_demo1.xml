@@ -40,6 +40,7 @@
         android:text="请求数据"
         android:textSize="42px" />
 
+
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"

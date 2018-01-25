@@ -8,17 +8,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
-import com.chad.library.adapter.base.entity.MultiItemEntity;
-import com.example.aac.adapter.ExpandableItemAdapter;
+import com.example.aac.adapter.ContentAdapter;
 import com.example.aac.adapter.HeaderAdapter;
 import com.example.aac.bean.AdInfo;
-import com.example.aac.bean.RiverSegment;
 import com.example.aac.viewmodel.AdInfoViewModel;
-import com.example.aac.viewmodel.RiverSegmentVM;
 import com.example.base.BaseActivity;
 import com.example.base.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -34,10 +30,9 @@ public class AACActivity extends BaseActivity {
     @BindView(R.id.content_recycler_view)
     RecyclerView contentRecyclerView;
     private AdInfoViewModel adInfoViewModel;
-    private RiverSegmentVM riverSegmentVM;
-    private ExpandableItemAdapter adapter;
     private HeaderAdapter headerAdapter;
-    private List<MultiItemEntity> data = new ArrayList<>();
+    private ContentAdapter contentAdapter;
+
 
     @Override
     protected int getContentViewId() {
@@ -47,20 +42,24 @@ public class AACActivity extends BaseActivity {
     @Override
     protected void initView() {
         adInfoViewModel = ViewModelProviders.of(this).get(AdInfoViewModel.class);
-        riverSegmentVM = ViewModelProviders.of(this).get(RiverSegmentVM.class);
+        initAdapter();
+    }
+
+    private void initAdapter() {
+        headerAdapter = new HeaderAdapter(null);
+        headerRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 4));
+        headerRecyclerView.setAdapter(headerAdapter);
+
+        contentAdapter = new ContentAdapter(null);
+        contentRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        contentRecyclerView.setAdapter(contentAdapter);
     }
 
     @Override
     protected void initData() {
         super.initData();
         getAdInfo();
-        headerAdapter = new HeaderAdapter(null);
-        headerRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 4));
-        headerRecyclerView.setAdapter(headerAdapter);
-        getRiverSegment("");
-        adapter = new ExpandableItemAdapter(data);
-        contentRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        contentRecyclerView.setAdapter(adapter);
+
     }
 
 
@@ -72,34 +71,12 @@ public class AACActivity extends BaseActivity {
                     List<AdInfo.DetailBean.TownBean> adList = adInfo.getDetail().getAdList();
                     if (adList != null) {
                         headerAdapter.setNewData(adList);
+                        contentAdapter.setNewData(adList);
                     }
                 }
             }
         });
     }
 
-    private void getRiverSegment(String code) {
-        riverSegmentVM.getRiverSegment(1, code).observe(this, new Observer<RiverSegment>() {
-            @Override
-            public void onChanged(@Nullable RiverSegment riverSegment) {
-                if (riverSegment != null) {
-                    List<RiverSegment.DetailBean.RiverSegmentsBean> riverSegments = riverSegment.getDetail().getRiverSegments();
-                    if (riverSegments != null) {
-                        data.clear();
-                        for (int i = 0; i < riverSegments.size(); i++) {
-                            RiverSegment.DetailBean.RiverSegmentsBean riverSegmentsBean = riverSegments.get(i);
-                            if (riverSegmentsBean.getChild() != null) {
-                                for (int j = 0; j < riverSegmentsBean.getChild().size(); j++) {
-                                    RiverSegment.DetailBean.RiverSegmentsBean.ChildBean childBean = riverSegmentsBean.getChild().get(j);
-                                    riverSegmentsBean.addSubItem(childBean);
-                                }
-                            }
-                            data.add(riverSegmentsBean);
-                        }
-                        adapter.notifyDataSetChanged();
-                    }
-                }
-            }
-        });
-    }
+
 }

@@ -41,7 +41,6 @@ public class Demo1Activity extends BaseMvpAppCompatActivity<IDemo1View, Demo1Pre
     TaoHeadline taoHeader;
     @BindView(R.id.text)
     TextView textView;
-
     @Override
     protected int getContentViewId() {
         return R.layout.activity_demo1;

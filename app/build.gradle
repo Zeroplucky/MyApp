@@ -45,6 +45,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
     //Butterknife
     compile project(':sdklib')
     compile project(':emotionlib')
