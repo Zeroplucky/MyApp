@@ -1,7 +1,9 @@
 package com.example.customwidget;
 
+import android.graphics.Color;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.chad.library.adapter.base.entity.MultiItemEntity;
@@ -12,6 +14,7 @@ import com.example.customwidget.bean.CountByAdcodeBean;
 import com.example.customwidget.presenter.CustomPresenter;
 import com.example.customwidget.presenter.ICustomPresenter;
 import com.example.customwidget.view.ICustomView;
+import com.example.customwidget.widget.loadview.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,23 +28,30 @@ public class CustomWidgetActivity extends BaseActivity implements ICustomView {
     ImageView backgroundImg;
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
+    @BindView(R.id.frame_layout2)
+    FrameLayout frameLayout2;
     private ICustomPresenter presenter;
     private List<MultiItemEntity> data = new ArrayList<>();
     private CountByAdcodeAdapter adapter;
+    private AVLoadingIndicatorView loadView;
 
     @Override
     protected int getContentViewId() {
         return R.layout.activity_custom_widget_;
     }
 
+
     @Override
     protected void initView() {
+        loadView = new AVLoadingIndicatorView(mContext);
+        loadView.setIndicatorView();
+        loadView.setIndicatorColor(Color.RED);
+        frameLayout2.addView(loadView);
         adapter = new CountByAdcodeAdapter(data);
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         recyclerView.setAdapter(adapter);
         presenter = new CustomPresenter(mContext);
         presenter.getCountByAdcode(this);
-
 
     }
 
@@ -54,7 +64,7 @@ public class CustomWidgetActivity extends BaseActivity implements ICustomView {
 
     @Override
     public void onBegin() {
-
+//        loadView.show();
     }
 
     @Override
@@ -74,8 +84,7 @@ public class CustomWidgetActivity extends BaseActivity implements ICustomView {
 
     @Override
     public void onEnd() {
-
+        loadView.hide();
     }
-
 
 }

@@ -1,34 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.aac.widget.ScrollingViewHeaderLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    app:headScrollMode="snap"
+    app:isSeriesScroll="true"
     tools:context="com.example.customwidget.CustomWidgetActivity">
 
     <ImageView
         android:id="@+id/background_img"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="-100dp"
+        android:layout_height="200dp"
         android:contentDescription="@null"
         android:scaleType="fitXY"
         android:src="@drawable/scrollview_header" />
 
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/frame_layout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="200dp"
         android:background="@color/transparent"
         android:orientation="vertical">
 
+
+        <FrameLayout
+            android:id="@+id/frame_layout2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </LinearLayout>
+    </FrameLayout>
 
-</com.zhy.autolayout.AutoRelativeLayout>
+</com.example.aac.widget.ScrollingViewHeaderLayout>
