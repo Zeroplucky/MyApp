@@ -35,7 +35,8 @@ public class CustomPresenter implements ICustomPresenter {
         map.put("queryType", "" + 1);
         map.put("begin_date", "2018-01-01");
         map.put("end_date", "2018-01-24");
-        OkGo.<String>post("http://192.168.2.38:8888/qxhzz/app/getRvCheckCountByAdcode.action")
+
+        OkGo.<String>post("http://202.96.98.106:8074/qxhzz/app/getRvCheckCountByAdcode.action")  //202.96.98.106:8074   120.79.90.233:8080
                 .params(map)
                 .execute(new StringCallback() {
                     @Override
