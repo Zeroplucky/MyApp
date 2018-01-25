@@ -11,15 +11,18 @@ import com.example.base.BaseActivity;
 import com.example.base.R;
 import com.example.customwidget.adapter.CountByAdcodeAdapter;
 import com.example.customwidget.bean.CountByAdcodeBean;
+import com.example.customwidget.fragment.SearchRiverDialog;
 import com.example.customwidget.presenter.CustomPresenter;
 import com.example.customwidget.presenter.ICustomPresenter;
 import com.example.customwidget.view.ICustomView;
 import com.example.customwidget.widget.loadview.AVLoadingIndicatorView;
+import com.example.utils.FragmentSwitcher;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 
 public class CustomWidgetActivity extends BaseActivity implements ICustomView {
@@ -34,6 +37,8 @@ public class CustomWidgetActivity extends BaseActivity implements ICustomView {
     private List<MultiItemEntity> data = new ArrayList<>();
     private CountByAdcodeAdapter adapter;
     private AVLoadingIndicatorView loadView;
+    private SearchRiverDialog riverDialog;
+    private FragmentSwitcher fragmentSwitcher;
 
     @Override
     protected int getContentViewId() {
@@ -47,6 +52,9 @@ public class CustomWidgetActivity extends BaseActivity implements ICustomView {
         loadView.setIndicatorView();
         loadView.setIndicatorColor(Color.RED);
         frameLayout2.addView(loadView);
+        //
+        fragmentSwitcher = new FragmentSwitcher(getSupportFragmentManager());
+        //
         adapter = new CountByAdcodeAdapter(data);
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         recyclerView.setAdapter(adapter);
@@ -87,4 +95,16 @@ public class CustomWidgetActivity extends BaseActivity implements ICustomView {
         loadView.hide();
     }
 
+    @OnClick(R.id.background_img)
+    public void onViewClicked() {
+        if (riverDialog != null) {
+            riverDialog.toggle();
+            return;
+        }
+        if (riverDialog == null) {
+            riverDialog = SearchRiverDialog.newInstance();
+            fragmentSwitcher.switchFragment(R.id.frame_layout1, riverDialog, "");
+
+        }
+    }
 }

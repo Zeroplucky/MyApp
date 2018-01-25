@@ -3,13 +3,16 @@ package com.example.customwidget.presenter;
 import android.content.Context;
 
 import com.example.customwidget.bean.CountByAdcodeBean;
+import com.example.customwidget.bean.RiverList;
 import com.example.customwidget.view.ICustomView;
+import com.example.customwidget.view.ISearchView;
 import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -52,6 +55,30 @@ public class CustomPresenter implements ICustomPresenter {
                     }
                 });
 
+
+    }
+
+    @Override
+    public void getSearchData(final ISearchView view) {
+        if (view == null) {
+            return;
+        }
+        view.onBegin();
+        OkGo.<String>get("http://202.96.98.106:8074/qxhzz/app/getRiverList.action?uid=407")
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(Response<String> response) {
+                        RiverList riverList = new Gson().fromJson(response.body(), RiverList.class);
+                        List<RiverList.DetailBean.RiverListBean> listBeans = riverList.getDetail().getRiverList();
+                        view.getDetailBean(listBeans);
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        super.onFinish();
+                        view.onEnd();
+                    }
+                });
 
     }
 }
