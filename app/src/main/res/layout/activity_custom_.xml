@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.customwidget.CustomActivity">
+
+
+    <com.example.customwidget.widget.Custom01View
+        android:id="@+id/custom01view"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:background="#ffb8ff"
+        android:gravity="center"
+        android:text="animation" />
+
+    <com.example.customwidget.widget.obj_point.MyAnimView
+        android:id="@+id/anim_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+</com.zhy.autolayout.AutoRelativeLayout>
