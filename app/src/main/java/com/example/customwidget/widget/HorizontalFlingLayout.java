@@ -80,7 +80,6 @@ public class HorizontalFlingLayout extends LinearLayout {
             case MotionEvent.ACTION_UP:
                 //松手时刻滑动
                 int offset = ((getScrollX() / (float) mRightView.getWidth()) > 0.5) ? mRightView.getWidth() : 0;
-//                this.scrollTo(offset, 0);
                 mScroller.startScroll(this.getScrollX(), this.getScrollY(), offset - this.getScrollX(), 0);
                 invalidate();
                 mInitX = 0;
