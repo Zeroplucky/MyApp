@@ -7,10 +7,9 @@
     tools:context="com.example.customwidget.CustomActivity">
 
 
-    <com.example.customwidget.widget.HorizontalFlingLayout
+    <com.example.customwidget.widget.VerticalLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
         <TextView
             android:layout_width="match_parent"
@@ -18,11 +17,11 @@
             android:background="#fef" />
 
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="#f0f" />
 
 
-    </com.example.customwidget.widget.HorizontalFlingLayout>
+    </com.example.customwidget.widget.VerticalLayout>
 
 </com.zhy.autolayout.AutoRelativeLayout>
