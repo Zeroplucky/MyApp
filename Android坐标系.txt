@@ -1,0 +1,23 @@
+
+博客地址：http://blog.csdn.net/yanbober/article/details/50419117
+
+1.View的静态坐标方法
+getLeft()	返回View自身左边到父布局左边的距离
+getTop()	返回View自身顶边到父布局顶边的距离
+getRight()	返回View自身右边到父布局左边的距离
+getBottom()	返回View自身底边到父布局顶边的距离
+getX()	返回值为getLeft()+getTranslationX()，当setTranslationX()时getLeft()不变，getX()变。
+getY()	返回值为getTop()+getTranslationY()，当setTranslationY()时getTop()不变，getY()变。
+
+2.MotionEvent坐标方法
+getX()	当前触摸事件距离当前View左边的距离
+getY()	当前触摸事件距离当前View顶边的距离
+getRawX()	当前触摸事件距离整个屏幕左边的距离
+getRawY()	当前触摸事件距离整个屏幕顶边的距离
+
+3.View的滑动方法
+offsetLeftAndRight(int offset)	水平方向挪动View，offset为正则x轴正向移动，移动的是整个View，getLeft()会变的
+offsetTopAndBottom(int offset)	垂直方向挪动View，offset为正则y轴正向移动，移动的是整个View，getTop()会变的
+setScrollX(int value)	实质为scrollTo()，只是只改变Y轴滑动。
+setScrollY(int value)	实质为scrollTo()，只是只改变X轴滑动。
+getScrollX()/getScrollY()	获取当前滑动位置偏移量。
