@@ -79,3 +79,44 @@ public final class VelocityTracker {
     public float getYVelocity(int id) {}
 }
 
+
+博客：http://blog.csdn.net/yanbober/article/details/49904715
+public class Scroller  {
+    //设置滚动持续时间
+    public final void setFriction(float friction) {}
+    //返回滚动是否结束
+    public final boolean isFinished() {}
+    //强制终止滚动
+    public final void forceFinished(boolean finished) {}
+        //返回滚动持续时间
+    public final int getDuration() {}
+    //返回当前滚动的偏移量
+    public final int getCurrX() {}
+    public final int getCurrY() {}
+    //返回当前的速度
+    public float getCurrVelocity() {}
+    //返回滚动起始点偏移量
+    public final int getStartX() {}
+    public final int getStartY() {}
+        //返回滚动结束偏移量
+    public final int getFinalX() {}
+    public final int getFinalY() {}
+    //实时调用该方法获取坐标及判断滑动是否结束，返回true动画没结束
+    public boolean computeScrollOffset() {}
+    //滑动到指定位置
+    public void startScroll(int startX, int startY, int dx, int dy) {}
+    public void startScroll(int startX, int startY, int dx, int dy, int duration) {}
+    //快速滑动松开手势惯性滑动
+    public void fling(int startX, int startY, int velocityX, int velocityY,
+            int minX, int maxX, int minY, int maxY) {}
+    //终止动画，滚到最终的x、y位置
+    public void abortAnimation() {}
+    //延长滚动的时间
+    public void extendDuration(int extend) {}
+    //返回滚动开始经过的时间
+    public int timePassed() {}
+    //设置终止时偏移量
+    public void setFinalX(int newX) {}
+    public void setFinalY(int newY) {}
+}
+
