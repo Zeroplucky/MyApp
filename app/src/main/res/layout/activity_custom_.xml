@@ -7,18 +7,22 @@
     tools:context="com.example.customwidget.CustomActivity">
 
 
-    <com.example.customwidget.widget.Custom01View
-        android:id="@+id/custom01view"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_centerInParent="true"
-        android:background="#ffb8ff"
-        android:gravity="center"
-        android:text="animation" />
+    <com.example.customwidget.widget.HorizontalFlingLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <com.example.customwidget.widget.obj_point.MyAnimView
-        android:id="@+id/anim_view"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#fef" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#f0f" />
+
+
+    </com.example.customwidget.widget.HorizontalFlingLayout>
 
 </com.zhy.autolayout.AutoRelativeLayout>
