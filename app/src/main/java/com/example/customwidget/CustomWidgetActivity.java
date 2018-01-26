@@ -11,7 +11,7 @@ import com.example.base.BaseActivity;
 import com.example.base.R;
 import com.example.customwidget.adapter.CountByAdcodeAdapter;
 import com.example.customwidget.bean.CountByAdcodeBean;
-import com.example.customwidget.fragment.SearchRiverDialog;
+import com.example.customwidget.fragment.SearchDialogFragment;
 import com.example.customwidget.presenter.CustomPresenter;
 import com.example.customwidget.presenter.ICustomPresenter;
 import com.example.customwidget.view.ICustomView;
@@ -37,7 +37,7 @@ public class CustomWidgetActivity extends BaseActivity implements ICustomView {
     private List<MultiItemEntity> data = new ArrayList<>();
     private CountByAdcodeAdapter adapter;
     private AVLoadingIndicatorView loadView;
-    private SearchRiverDialog riverDialog;
+    private SearchDialogFragment riverDialog;
     private FragmentSwitcher fragmentSwitcher;
 
     @Override
@@ -102,7 +102,7 @@ public class CustomWidgetActivity extends BaseActivity implements ICustomView {
             return;
         }
         if (riverDialog == null) {
-            riverDialog = SearchRiverDialog.newInstance();
+            riverDialog = SearchDialogFragment.newInstance();
             fragmentSwitcher.switchFragment(R.id.frame_layout1, riverDialog, "");
 
         }

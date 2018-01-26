@@ -34,12 +34,12 @@ import butterknife.OnClick;
  * Created by Administrator on 2018/1/16.
  */
 
-public class SearchRiverDialog extends Fragment implements ISearchView {
+public class SearchDialogFragment extends Fragment implements ISearchView {
 
     private static final String SEARCH_TYPE = "params:searchType";
 
-    public static SearchRiverDialog newInstance() {
-        SearchRiverDialog f = new SearchRiverDialog();
+    public static SearchDialogFragment newInstance() {
+        SearchDialogFragment f = new SearchDialogFragment();
         Bundle args = new Bundle();
         f.setArguments(args);
         return f;
