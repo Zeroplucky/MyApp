@@ -58,7 +58,7 @@ public class HorizontalFlingLayout extends LinearLayout {
             case MotionEvent.ACTION_DOWN:
                 mInitX = ev.getX();
                 mInitY = ev.getY();
-//                super.dispatchTouchEvent(ev);
+                super.dispatchTouchEvent(ev);
                 return true;
             case MotionEvent.ACTION_MOVE:
                 //>0为手势向右下

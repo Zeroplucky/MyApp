@@ -3,6 +3,7 @@ package com.example.customwidget.widget;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -61,20 +62,21 @@ public class VerticalLayout extends LinearLayout {
             case MotionEvent.ACTION_DOWN:
                 evX = ev.getX();
                 evY = ev.getY();
-                break;
+                return true;
             case MotionEvent.ACTION_MOVE:
                 mOffsetX = ev.getX() - evX;
                 mOffsetY = ev.getY() - evY;
-                if (Math.abs(mOffsetX) - Math.abs(mOffsetY) > ViewConfiguration.getTouchSlop()) {
+                Log.e("xxx", "dispatchTouchEvent: " + mOffsetX + " --- " + mOffsetY);
+                if (Math.abs(mOffsetY) - Math.abs(mOffsetX) > ViewConfiguration.getTouchSlop()) {
 
-                    if (getScrollY() + mOffsetY > firstView.getHeight()) {
-                        return true;
-                    }
-                    this.scrollBy(0, (int) mOffsetY);
+//                    if (getScrollY() + mOffsetY > firstView.getHeight()) {
+//                        return true;
+//                    }
+                    this.scrollBy(0, -(int) mOffsetY);
                     evX = ev.getX();
                     evY = ev.getY();
                 }
-                break;
+                return true;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 //松手时刻滑动
