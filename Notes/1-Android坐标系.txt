@@ -20,4 +20,6 @@ offsetLeftAndRight(int offset)	水平方向挪动View，offset为正则x轴正�
 offsetTopAndBottom(int offset)	垂直方向挪动View，offset为正则y轴正向移动，移动的是整个View，getTop()会变的
 setScrollX(int value)	实质为scrollTo()，只是只改变Y轴滑动。
 setScrollY(int value)	实质为scrollTo()，只是只改变X轴滑动。
+scrollTo(int x, int y)	将View中内容（不是整个View）滑动到相应的位置，参考坐标原点为ParentView左上角，x，y为正则向xy轴反方向移动，反之同理。
+scrollBy(int x, int y)	在scrollTo()的基础上继续滑动xy。
 getScrollX()/getScrollY()	获取当前滑动位置偏移量。
