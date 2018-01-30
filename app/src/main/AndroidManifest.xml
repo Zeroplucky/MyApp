@@ -108,10 +108,10 @@
         <activity
             android:name="com.example.huanxinim.view.ChatActivity"
             android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
-        <activity android:name="com.example.coordinator.CoordinatorActivity" />
-        <activity android:name="com.example.coordinator.view.ZhihuWebActivity" />
+        <activity android:name="com.example.coordinators.CoordinatorActivity" />
+        <activity android:name="com.example.coordinators.view.ZhihuWebActivity" />
         <!-- <activity android:name="com.example.Coordinator.view.BaseWebViewActivity" /> -->
-        <activity android:name="com.example.coordinator.view.CustomWebActivity" />
+        <activity android:name="com.example.coordinators.view.CustomWebActivity" />
         <activity
             android:name="com.example.video.view.WebVideoActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
