@@ -11,7 +11,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.Coordinator.CoordinatorActivity;
+import com.example.coordinator.CoordinatorActivity;
 import com.example.aac.AACActivity;
 import com.example.base.BaseActivity;
 import com.example.base.BaseApp;

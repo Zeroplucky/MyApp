@@ -39,7 +39,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorAccent));
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorAccent),0);
         mInflater = getLayoutInflater();
         mContext = this;
         onBeforeSetContentLayout();
