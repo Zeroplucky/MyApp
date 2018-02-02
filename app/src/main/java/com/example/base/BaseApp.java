@@ -3,7 +3,6 @@ package com.example.base;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
@@ -14,22 +13,14 @@ import com.example.utils.NetworkUtils;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.lzy.okgo.OkGo;
-import com.lzy.okgo.cache.CacheEntity;
-import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
-import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
 import com.tencent.smtt.sdk.QbSdk;
 
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 import static com.huawei.android.pushselfshow.richpush.html.HtmlViewer.TAG;
 
@@ -126,26 +117,11 @@ public class BaseApp extends MultiDexApplication {
         loggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);        //log打印级别，决定了log显示的详细程度
         loggingInterceptor.setColorLevel(Level.SEVERE);                   //log颜色级别，决定了log在控制台显示的颜色
         builder.addInterceptor(loggingInterceptor);                                 //添加OkGo默认debug日志
-//        builder.addNetworkInterceptor()
-//        builder.addInterceptor(new CacheInterceptor());
         OkGo.getInstance().init(this)                           //必须调用初始化
                 .setOkHttpClient(builder.build());               //建议设置OkHttpClient，不设置会使用默认的
 //                .setCacheMode(CacheMode.NO_CACHE)               //全局统一缓存模式，默认不使用缓存，可以不传
 //                .setCacheTime(CacheEntity.CACHE_NEVER_EXPIRE)   //全局统一缓存时间，默认永不过期，可以不传
 //                .setRetryCount(3);                               //全局统一超时重连次数，默认为三次，那么最差的情况会请求4次(一次原始请求，三次重连请求)，不需要可以设置为0
-    }
-
-
-    private class CacheInterceptor implements Interceptor {
-
-        @Override
-        public Response intercept(@NonNull Chain chain) throws IOException {
-            Request request = chain.request();
-            Response response = chain.proceed(request);
-            return response.newBuilder()
-                    .code(304)
-                    .build();
-        }
     }
 
 
