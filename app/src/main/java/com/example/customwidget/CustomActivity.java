@@ -27,7 +27,7 @@ public class CustomActivity extends BaseActivity {
         //
         OkGo.<String>get("http://120.79.90.233:8080/qxhzz/app/getRiverGisByRiverCode.action?uid=407&riverCode=")
                 .tag(this)
-                .cacheMode(CacheMode.FIRST_CACHE_THEN_REQUEST)
+                .cacheMode(CacheMode.IF_NONE_CACHE_REQUEST)
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
