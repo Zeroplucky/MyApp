@@ -23,3 +23,16 @@ setScrollY(int value)	实质为scrollTo()，只是只改变X轴滑动。
 scrollTo(int x, int y)	将View中内容（不是整个View）滑动到相应的位置，参考坐标原点为ParentView左上角，x，y为正则向xy轴反方向移动，反之同理。
 scrollBy(int x, int y)	在scrollTo()的基础上继续滑动xy。
 getScrollX()/getScrollY()	获取当前滑动位置偏移量。
+
+4.Scroller类   https://juejin.im/entry/58396e5ba22b9d006c089d52
+void	abortAnimation()	停止滚动
+boolean	computeScrollOffset()	计算scroll的情况,返回true表示动画未结束
+final void	forceFinished(boolean finished)	强制设置scroll状态
+final int	getStartX()	得到scroll行为起点的X值
+final int	getStartY()	得到scroll行为起点的Y值
+final int	getFinalX()	得到scroll行为终点的X值
+final int	getFinalY()	得到scroll行为终点的Y值
+final boolean	isFinished()	返回scroll行为是否结束
+void	startScroll(int startX, int startY, int dx, int dy)	设置一个scrolling行为模型，即在 int duration （单位为毫秒）时间的内从int startX, int startY,这个点起向X和Y方向分别滚动 int dx和 int dy 个像素
+void	startScroll(int startX, int startY, int dx, int dy, int duration)	设置一个scrolling行为模型，即在默认时间（250毫秒）内从int startX, int startY,这个点起向X和Y方向分别滚动 int dx和 int dy 个像素
+void	fling(int startX, int startY, int velocityX, int velocityY, int minX, int maxX, int minY, int maxY)	模拟fling形式的scroll行为。int startX, int startY代表起点，int velocityX, int velocityY代表初速度，int minX, int maxX, int minY, int maxY代表终点的范围
