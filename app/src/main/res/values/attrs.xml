@@ -79,4 +79,8 @@
         <attr name="indicatorColor" format="color" />
     </declare-styleable>
 
+    <declare-styleable name="DrawerBehavior">
+        <attr name="android:layout_gravity"/>
+    </declare-styleable>
+
 </resources>

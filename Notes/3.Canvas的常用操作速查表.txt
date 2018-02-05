@@ -1,7 +1,7 @@
 
 
 
-
+Canvas的常用操作
 绘制颜色	drawColor, drawRGB, drawARGB	使用单一颜色填充整个画布
 绘制基本形状	drawPoint, drawPoints, drawLine, drawLines, drawRect, drawRoundRect, drawOval, drawCircle, drawArc	依次为 点、线、矩形、圆角矩形、椭圆、圆、圆弧
 绘制图片	drawBitmap, drawPicture	绘制位图和图片
@@ -12,4 +12,13 @@
 画布快照	save, restore, saveLayerXxx, restoreToCount, getSaveCount	依次为 保存当前状态、 回滚到上一次保存的状态、 保存图层状态、 回滚到指定状态、 获取保存次数
 画布变换	translate, scale, rotate, skew	依次为 位移、缩放、 旋转、错切
 Matrix(矩阵)	getMatrix, setMatrix, concat	实际上画布的位移，缩放等操作的都是图像矩阵Matrix， 只不过Matrix比较难以理解和使用，故封装了一些常用的方法。
+
+Path常用方法表
+添加内容	addRect, addRoundRect, addOval, addCircle, addPath, addArc, arcTo	添加(矩形， 圆角矩形， 椭圆， 圆， 路径， 圆弧) 到当前Path (注意addArc和arcTo的区别)
+移动起点	moveTo	移动下一次操作的起点位置
+设置终点	setLastPoint	重置当前path中最后一个点位置，如果在绘制之前调用，效果和moveTo相同
+连接直线	lineTo	添加上一个点到当前点之间的直线到Path
+moveTo	移动下一次操作的起点位置	否	是
+setLastPoint	设置之前操作的最后一个点位置	是	是
+闭合路径	close	连接第一个点连接到最后一个点，形成一个闭合区域
 
