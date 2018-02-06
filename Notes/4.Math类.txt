@@ -1,0 +1,22 @@
+
+
+
+1.abs 绝对值函数
+
+2.三角函数与反三角函数
+         * cos求余弦
+         * sin求正弦
+         * tan求正切
+         * acos求反余弦
+         * asin求反正弦
+         * atan求反正切
+         * atan2(y,x)求向量(x,y)与x轴夹角
+
+3.开根号
+         * cbrt(x)开立方
+         * sqrt(x)开平方
+         * hypot(x,y)求sqrt(x*x+y*y)在求两点间距离时有用sqrt((x1-x2)^2+(y1-y2)^2)
+
+4.最值
+         * max(a,b)求最大值
+         * min(a,b)求最小值

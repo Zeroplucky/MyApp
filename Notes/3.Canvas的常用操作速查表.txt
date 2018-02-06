@@ -18,7 +18,20 @@ Path常用方法表
 移动起点	moveTo	移动下一次操作的起点位置
 设置终点	setLastPoint	重置当前path中最后一个点位置，如果在绘制之前调用，效果和moveTo相同
 连接直线	lineTo	添加上一个点到当前点之间的直线到Path
-moveTo	移动下一次操作的起点位置	否	是
-setLastPoint	设置之前操作的最后一个点位置	是	是
 闭合路径	close	连接第一个点连接到最后一个点，形成一个闭合区域
+是否为空	isEmpty	判断Path是否为空
+是否为矩形	isRect	判断path是否是一个矩形
+替换路径	set	用新的路径替换到当前路径所有内容
+偏移路径	offset	对当前路径之前的操作进行偏移(不会影响之后的操作)
+贝塞尔曲线	quadTo, cubicTo	分别为二次和三次贝塞尔曲线的方法
+布尔操作(API19)	op	对两个Path进行布尔运算(即取交集、并集等操作)
+计算边界	computeBounds	计算Path的边界
+重置路径	reset, rewind	清除Path中的内容 reset不保留内部数据结构，但会保留FillType、 rewind会保留内部的数据结构，但不保留FillType
+矩阵操作	transform	矩阵变换
+=====Op 布尔操作
+DIFFERENCE	差集	Path1中减去Path2后剩下的部分
+REVERSE_DIFFERENCE	差集	Path2中减去Path1后剩下的部分
+INTERSECT	交集	Path1与Path2相交的部分
+UNION	并集	包含全部Path1和Path2
+XOR	异或	包含Path1与Path2但不包括两者相交的部分
 

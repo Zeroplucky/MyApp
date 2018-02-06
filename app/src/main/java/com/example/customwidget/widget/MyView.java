@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 /**
@@ -39,7 +40,7 @@ public class MyView extends View {
         mPaint = new Paint();
         mPaint.setColor(Color.BLACK);       //设置画笔颜色
         mPaint.setStyle(Paint.Style.STROKE);  //设置画笔模式为填充
-        mPaint.setStrokeWidth(2f);         //设置画笔宽度为10px
+        mPaint.setStrokeWidth(5f);         //设置画笔宽度为10px
 
     }
 
@@ -59,19 +60,31 @@ public class MyView extends View {
 //        }
         Path path = new Path();                     // 创建Path
 
-        path.lineTo(200, 200);                      // lineTo
+//        path.moveTo(100, 100);                       // moveTo
+//
+//        path.lineTo(200, 200);                      // lineTo
+//
+////        path.moveTo(200, 100);                       // moveTo
+//
+//        path.lineTo(200, 0);                         // lineTo
+//
+//
+//        canvas.drawPath(path, mPaint);              // 绘制Path
 
-//        path.moveTo(200, 100);                       // moveTo
 
-        path.lineTo(200, 0);                         // lineTo
+        path.addCircle(0, 0, 500, Path.Direction.CW);
+        canvas.drawPath(path, mPaint);
 
-        path.close();
 
-        canvas.drawPath(path, mPaint);              // 绘制Path
 
 
     }
 
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        return super.dispatchTouchEvent(event);
+    }
 
     public int getScreenW() {
         return getContext().getResources().getDisplayMetrics().widthPixels;
