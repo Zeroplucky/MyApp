@@ -5,9 +5,20 @@
     android:layout_height="match_parent"
     android:background="#feee">
 
-    <com.example.customwidget.widget.MyView
+    <com.example.customwidget.widget.MyRelative
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+
+        <com.example.customwidget.widget.MyButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:background="@color/white"
+            android:gravity="center" />
+
+
+    </com.example.customwidget.widget.MyRelative>
 
 
 </android.support.constraint.ConstraintLayout>

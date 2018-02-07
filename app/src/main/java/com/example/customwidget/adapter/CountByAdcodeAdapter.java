@@ -52,5 +52,7 @@ public class CountByAdcodeAdapter extends BaseMultiItemQuickAdapter<MultiItemEnt
                 holder.setText(R.id.tv_name, childBean.getName());
                 break;
         }
+
+
     }
 }
