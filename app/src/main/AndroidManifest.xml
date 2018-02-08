@@ -108,7 +108,13 @@
         <activity
             android:name="com.example.huanxinim.view.ChatActivity"
             android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
-        <activity android:name="com.example.coordinators.CoordinatorActivity" />
+        <activity android:name="com.example.coordinators.CoordinatorActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.example.coordinators.view.ZhihuWebActivity" />
         <!-- <activity android:name="com.example.Coordinator.view.BaseWebViewActivity" /> -->
         <activity android:name="com.example.coordinators.view.CustomWebActivity" />
@@ -127,11 +133,7 @@
         <activity android:name="com.example.superfileview.SuperFileViewActivity" />
         <activity android:name="com.example.superfileview.view.FileDisplayActivity" />
         <activity android:name="com.example.customwidget.CustomWidgetActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.example.aac.AACActivity"

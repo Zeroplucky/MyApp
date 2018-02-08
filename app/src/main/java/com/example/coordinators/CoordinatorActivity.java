@@ -10,20 +10,23 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.base.BaseActivity;
+import com.example.base.R;
 import com.example.coordinators.adpter.FragmentAdapter;
 import com.example.coordinators.constant.Constants;
 import com.example.coordinators.fragment.CustomFragment;
 import com.example.coordinators.fragment.ZhihuFragment;
 import com.example.coordinators.presenter.IFragmentItemPresenter;
-import com.example.coordinators.presenter.impl.FragmentItemPresenter;
 import com.example.coordinators.view.IFragmentItemView;
-import com.example.base.BaseActivity;
-import com.example.base.R;
+import com.example.dagger.component.DaggerAppComponent;
+import com.example.dagger.module.AppModule;
 import com.jaeger.library.StatusBarUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import io.reactivex.functions.Consumer;
@@ -41,7 +44,8 @@ public class CoordinatorActivity extends BaseActivity implements IFragmentItemVi
     FloatingActionButton fabClassify;
     @BindView(R.id.vp_fragment)
     ViewPager vpFragment;
-    private IFragmentItemPresenter presenter;
+    @Inject
+    IFragmentItemPresenter presenter;
     private List<Fragment> fragments;
 
     @Override
@@ -52,7 +56,10 @@ public class CoordinatorActivity extends BaseActivity implements IFragmentItemVi
     @Override
     protected void initView() {
         StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary));
-        presenter = new FragmentItemPresenter(this);
+        DaggerAppComponent.builder()
+                .appModule(new AppModule(this, this))
+                .build()
+                .inject(this);
         fragments = new ArrayList<>();
         presenter.getTabs();
         //rxpermissions2 的用法

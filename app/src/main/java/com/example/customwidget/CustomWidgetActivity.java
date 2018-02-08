@@ -12,14 +12,17 @@ import com.example.base.R;
 import com.example.customwidget.adapter.CountByAdcodeAdapter;
 import com.example.customwidget.bean.CountByAdcodeBean;
 import com.example.customwidget.fragment.SearchDialogFragment;
-import com.example.customwidget.presenter.CustomPresenter;
 import com.example.customwidget.presenter.ICustomPresenter;
 import com.example.customwidget.view.ICustomView;
 import com.example.customwidget.widget.loadview.AVLoadingIndicatorView;
+import com.example.dagger.component.DaggerAppComponent;
+import com.example.dagger.module.AppModule;
 import com.example.utils.FragmentSwitcher;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -33,7 +36,8 @@ public class CustomWidgetActivity extends BaseActivity implements ICustomView {
     RecyclerView recyclerView;
     @BindView(R.id.frame_layout2)
     FrameLayout frameLayout2;
-    private ICustomPresenter presenter;
+    @Inject
+    ICustomPresenter presenter;
     private List<MultiItemEntity> data = new ArrayList<>();
     private CountByAdcodeAdapter adapter;
     private AVLoadingIndicatorView loadView;
@@ -58,7 +62,11 @@ public class CustomWidgetActivity extends BaseActivity implements ICustomView {
         adapter = new CountByAdcodeAdapter(data);
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         recyclerView.setAdapter(adapter);
-        presenter = new CustomPresenter(mContext);
+        DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
+                .build()
+                .inject(this);
+//                .
         presenter.getCountByAdcode(this);
 
     }
