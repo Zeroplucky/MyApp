@@ -109,14 +109,10 @@
             android:name="com.example.huanxinim.view.ChatActivity"
             android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
         <activity android:name="com.example.coordinators.CoordinatorActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="com.example.coordinators.view.ZhihuWebActivity" />
-        <!-- <activity android:name="com.example.Coordinator.view.BaseWebViewActivity" /> -->
+
         <activity android:name="com.example.coordinators.view.CustomWebActivity" />
         <activity
             android:name="com.example.video.view.WebVideoActivity"
@@ -140,7 +136,11 @@
             android:label="@string/title_activity_aac"
             android:theme="@style/AppTheme" />
         <activity android:name="com.example.customwidget.CustomActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
     </application>
