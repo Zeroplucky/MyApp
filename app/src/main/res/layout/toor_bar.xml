@@ -4,7 +4,6 @@
     android:layout_height="200px"
     android:background="@color/colorPrimary">
 
-
     <ImageButton
         android:id="@+id/img_back"
         android:layout_width="wrap_content"
