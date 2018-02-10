@@ -70,7 +70,7 @@
         android:padding="1dp"
         android:text="发送"
         android:textColor="@color/white"
-        android:visibility="visible"
+        android:visibility="gone"
         app:normalBackgroundColor="@color/qq_blue"
         app:pressedBackgroundColor="@color/colorPrimaryDark"
         app:radius="5dp" />
