@@ -18,6 +18,10 @@ public class CustomActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+
+
+
+
         //
 
     }
