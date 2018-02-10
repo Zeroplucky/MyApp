@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="150px"
+    android:layout_height="230px"
     android:orientation="vertical">
 
     <com.zhy.autolayout.AutoRelativeLayout
@@ -14,59 +14,68 @@
 
         <ImageView
             android:id="@id/avatar"
-            android:layout_width="100px"
-            android:layout_height="100px"
+            android:layout_width="140px"
+            android:layout_height="140px"
+            android:layout_centerVertical="true"
             android:layout_margin="20px"
             android:src="@drawable/icon_touxiang02" />
 
-        <TextView
-            android:id="@id/user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10px"
-            android:layout_toRightOf="@id/avatar"
-            android:text="zp"
-            android:textColor="@android:color/black"
-            android:textSize="43px" />
 
-        <TextView
-            android:id="@id/last_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/user_name"
-            android:layout_toRightOf="@id/avatar"
-            android:singleLine="true"
-            android:text="Hello"
-            android:textColor="@color/qq_gray_dark"
-            android:textSize="38px" />
-
-        <TextView
-            android:id="@id/timestamp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:text="17:47"
-            android:textColor="@color/qq_gray_dark"
-            android:textSize="38px" />
-
-        <TextView
-            android:id="@id/unread_count"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/timestamp"
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="140px"
+            android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:background="@drawable/bg_unread_text"
-            android:gravity="center"
-            android:padding="2dp"
-            android:text="99"
-            android:textColor="@android:color/white"
-            android:textSize="28px" />
+            android:layout_toRightOf="@id/avatar">
+
+            <TextView
+                android:id="@id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="zp"
+                android:textColor="@android:color/black"
+                android:textSize="43px" />
+
+            <TextView
+                android:id="@id/last_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_alignParentBottom="true"
+                android:text="Hello"
+                android:textColor="@color/qq_gray_dark"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@id/timestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="17:47"
+                android:textColor="@color/qq_gray_dark"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@id/unread_count"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/bg_unread_text"
+                android:gravity="center"
+                android:padding="1dp"
+                android:text="99"
+                android:textColor="@android:color/white"
+                android:textSize="25px" />
+
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+
     </com.zhy.autolayout.AutoRelativeLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="@color/status_bar_color" />
+        android:background="@color/divider_line" />
 </com.zhy.autolayout.AutoLinearLayout>
