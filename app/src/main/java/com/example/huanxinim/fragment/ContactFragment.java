@@ -155,20 +155,25 @@ public class ContactFragment extends BaseFragment implements IContactView {
     @Override
     public void onSuccess() {
         mContactListAdapter.notifyDataSetChanged();
-        mRecyclerView.complete();
+        if (mRecyclerView != null)
+            mRecyclerView.complete();
     }
 
     @Override
     public void onSuccessNoData() {
-        mRecyclerView.setEmptyView("没有联系人");
-        mRecyclerView.complete();
+        if (mRecyclerView != null) {
+            mRecyclerView.setEmptyView("没有联系人");
+            mRecyclerView.complete();
+        }
     }
 
     @Override
     public void onGetContactListFailed() {
         Toast.makeText(getContext(), "获取联系人失败", Toast.LENGTH_SHORT).show();
-        mRecyclerView.setErrorView();
-        mRecyclerView.complete();
+        if (mRecyclerView != null) {
+            mRecyclerView.setErrorView();
+            mRecyclerView.complete();
+        }
     }
 
     @Override

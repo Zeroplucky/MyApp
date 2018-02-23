@@ -51,7 +51,7 @@ public class LoginActivity extends BaseActivity implements ILoginView {
 
     @Override
     protected void initView() {
-        StatusBarUtil.setColor(this,getResources().getColor(R.color.status_bar_color2));
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.status_bar_color2));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setNavigationBarColor(getResources().getColor(R.color.black));
         }
@@ -112,7 +112,6 @@ public class LoginActivity extends BaseActivity implements ILoginView {
         hideKeyBoard();
         String userName = mUserName.getText().toString().trim();
         String password = mPassword.getText().toString().trim();
-//        EMClient.getInstance().logout(true);
         mLoginPresenter.login(userName, password);
     }
 
@@ -168,5 +167,10 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     public void onLoginFailed() {
         WaitingView.stopLoading();
         Toast.makeText(mContext, "登录失败", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onLodinAgin() {
+        login();
     }
 }

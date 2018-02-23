@@ -53,13 +53,25 @@ public class LoginPresenterImpl implements ILoginPresenter {
 
         @Override
         public void onError(int i, String s) {
-            Log.e("xxx", "onError: " + s);
-            ThreadUtils.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    mLoginView.onLoginFailed();
-                }
-            });
+            Log.e("xxx", "onError: " + s + " i = " + i);
+            if (i == 200) {
+                //用户已登录
+                ThreadUtils.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        EMClient.getInstance().logout(true);
+                        mLoginView.onLodinAgin();
+                    }
+                });
+            } else {
+                ThreadUtils.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mLoginView.onLoginFailed();
+                    }
+                });
+            }
+
         }
 
         @Override

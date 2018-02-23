@@ -15,4 +15,6 @@ public interface ILoginView {
     void onLoginSuccess();
 
     void onLoginFailed();
+
+    void onLodinAgin();
 }

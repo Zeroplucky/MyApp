@@ -89,6 +89,7 @@ public class IMActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        EMClient.getInstance().logout(true);
         EMClient.getInstance().removeConnectionListener(mEMConnectionListener);
         EMClient.getInstance().chatManager().removeMessageListener(mEMMessageListenerAdapter);
     }
