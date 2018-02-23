@@ -24,7 +24,6 @@ import com.example.huanxinim.view.ILoginView;
 import com.example.huanxinim.view.IMActivity;
 import com.example.huanxinim.widget.PSEditText;
 import com.example.widget.WaitingView;
-import com.hyphenate.chat.EMClient;
 import com.jaeger.library.StatusBarUtil;
 import com.zhy.autolayout.AutoRelativeLayout;
 
@@ -113,7 +112,7 @@ public class LoginActivity extends BaseActivity implements ILoginView {
         hideKeyBoard();
         String userName = mUserName.getText().toString().trim();
         String password = mPassword.getText().toString().trim();
-        EMClient.getInstance().logout(true);
+//        EMClient.getInstance().logout(true);
         mLoginPresenter.login(userName, password);
     }
 
