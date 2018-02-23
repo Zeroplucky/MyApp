@@ -42,6 +42,9 @@ public class MediaManager {
         } catch (Exception e) {
             mMediaPlayer.stop();
             release();
+            if (onCompletionListener != null) {
+                onCompletionListener.onCompletion(mMediaPlayer);
+            }
         }
     }
 
