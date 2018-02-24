@@ -5,7 +5,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.example.base.BaseApp;
 import com.example.base.R;
 import com.example.base.mvpframe.factory.CreatePresenter;
 import com.example.base.mvpframe.view.BaseMvpAppCompatActivity;
@@ -15,7 +14,6 @@ import com.example.okgo_http.mvp.Demo2Presenter;
 import com.example.okgo_http.mvp.IDemo2View;
 import com.example.widget.LoadingView;
 import com.example.widget.refreshview.CustomRefreshView;
-import com.squareup.leakcanary.RefWatcher;
 
 import java.util.List;
 
@@ -30,6 +28,7 @@ public class Demo2Activity extends BaseMvpAppCompatActivity<IDemo2View, Demo2Pre
     private Demo2Adapter adapter;
     private boolean isRefresh = true;
     private int page = 1;
+    private List<ReportEventsBean.DetailBean.SuccessBean> success;
 
     @Override
     protected int getContentViewId() {
@@ -46,12 +45,13 @@ public class Demo2Activity extends BaseMvpAppCompatActivity<IDemo2View, Demo2Pre
         recyclerView.setLoadMoreEnable(false);
         recyclerView.setRefreshing(true);
         adapter.setOnLoadMoreListener(this, recyclerView.getRecyclerView());
+        getMvpPresenter().request(1);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        getMvpPresenter().request(1);
+
         //观察ACIVITY是否内存泄露
 //        RefWatcher refWatcher = BaseApp.getRefWatcher(this);
 //        refWatcher.watch(this);
@@ -61,24 +61,27 @@ public class Demo2Activity extends BaseMvpAppCompatActivity<IDemo2View, Demo2Pre
     @Override
     public void onFinish() {
         recyclerView.complete();
+
+        if (success.size() == 0) {
+            adapter.loadMoreEnd();
+            return;
+        } else {
+            adapter.loadMoreComplete();
+        }
+        adapter.notifyDataSetChanged();
     }
 
     @Override
     public void success(ReportEventsBean reportEventsBean) {
         if (reportEventsBean.getType() == 1) {
-            List<ReportEventsBean.DetailBean.SuccessBean> success = reportEventsBean.getDetail().getSuccess();
-            if (success.size() == 0) {
-                adapter.loadMoreEnd();
-                return;
-            }
+            success = reportEventsBean.getDetail().getSuccess();
             if (isRefresh) {
                 isRefresh = false;
                 adapter.setNewData(success);
             } else {
                 adapter.addData(success);
-                adapter.loadMoreComplete();
             }
-            adapter.notifyDataSetChanged();
+
         }
     }
 

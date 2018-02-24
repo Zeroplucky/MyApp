@@ -10,7 +10,7 @@ import com.example.base.mvpframe.view.BaseMvpView;
 /**
  * @description 代理实现类，用来管理Presenter的生命周期，还有和view之间的关联
  */
-public class BaseMvpProxy<V extends BaseMvpView, P extends BaseMvpPresenter<V>> implements PresenterProxyInterface<V, P>{
+public class BaseMvpProxy<V extends BaseMvpView, P extends BaseMvpPresenter<V>> implements PresenterProxyInterface<V, P> {
 
     /**
      * 获取onSaveInstanceState中bundle的key
@@ -60,24 +60,26 @@ public class BaseMvpProxy<V extends BaseMvpView, P extends BaseMvpPresenter<V>> 
      */
     @Override
     public P getMvpPresenter() {
-        Log.e("perfect-mvp","Proxy getMvpPresenter");
+        Log.e("perfect-mvp", "Proxy getMvpPresenter");
         if (mFactory != null) {
             if (mPresenter == null) {
                 mPresenter = mFactory.createMvpPresenter();
                 mPresenter.onCreatePersenter(mBundle == null ? null : mBundle.getBundle(PRESENTER_KEY));
             }
         }
-        Log.e("perfect-mvp","Proxy getMvpPresenter = " + mPresenter);
+        Log.e("perfect-mvp", "Proxy getMvpPresenter = " + mPresenter);
+
         return mPresenter;
     }
 
     /**
      * 绑定Presenter和view
+     *
      * @param mvpView
      */
-    public void onResume(V mvpView) {
+    public void onCreate(V mvpView) {
         getMvpPresenter();
-        Log.e("perfect-mvp","Proxy onResume");
+        Log.e("perfect-mvp", "Proxy onResume");
         if (mPresenter != null && !mIsAttchView) {
             mPresenter.onAttachMvpView(mvpView);
             mIsAttchView = true;
@@ -88,7 +90,7 @@ public class BaseMvpProxy<V extends BaseMvpView, P extends BaseMvpPresenter<V>> 
      * 销毁Presenter持有的View
      */
     private void onDetachMvpView() {
-        Log.e("perfect-mvp","Proxy onDetachMvpView = ");
+        Log.e("perfect-mvp", "Proxy onDetachMvpView = ");
         if (mPresenter != null && mIsAttchView) {
             mPresenter.onDetachMvpView();
             mIsAttchView = false;
@@ -99,8 +101,8 @@ public class BaseMvpProxy<V extends BaseMvpView, P extends BaseMvpPresenter<V>> 
      * 销毁Presenter
      */
     public void onDestroy() {
-        Log.e("perfect-mvp","Proxy onDestroy = ");
-        if (mPresenter != null ) {
+        Log.e("perfect-mvp", "Proxy onDestroy = ");
+        if (mPresenter != null) {
             onDetachMvpView();
             mPresenter.onDestroyPersenter();
             mPresenter = null;
@@ -109,28 +111,30 @@ public class BaseMvpProxy<V extends BaseMvpView, P extends BaseMvpPresenter<V>> 
 
     /**
      * 意外销毁的时候调用
+     *
      * @return Bundle，存入回调给Presenter的Bundle和当前Presenter的id
      */
     public Bundle onSaveInstanceState() {
-        Log.e("perfect-mvp","Proxy onSaveInstanceState = ");
+        Log.e("perfect-mvp", "Proxy onSaveInstanceState = ");
         Bundle bundle = new Bundle();
         getMvpPresenter();
-        if(mPresenter != null){
+        if (mPresenter != null) {
             Bundle presenterBundle = new Bundle();
             //回调Presenter
             mPresenter.onSaveInstanceState(presenterBundle);
-            bundle.putBundle(PRESENTER_KEY,presenterBundle);
+            bundle.putBundle(PRESENTER_KEY, presenterBundle);
         }
         return bundle;
     }
 
     /**
      * 意外关闭恢复Presenter
+     *
      * @param savedInstanceState 意外关闭时存储的Bundler
      */
     public void onRestoreInstanceState(Bundle savedInstanceState) {
-        Log.e("perfect-mvp","Proxy onRestoreInstanceState = ");
-        Log.e("perfect-mvp","Proxy onRestoreInstanceState Presenter = " + mPresenter);
+        Log.e("perfect-mvp", "Proxy onRestoreInstanceState = ");
+        Log.e("perfect-mvp", "Proxy onRestoreInstanceState Presenter = " + mPresenter);
         mBundle = savedInstanceState;
 
     }

@@ -4,6 +4,9 @@ import android.content.Context;
 import android.util.Log;
 
 import com.example.base.mvpframe.presenter.BaseMvpPresenter;
+import com.example.bean.ReportEventsBean;
+import com.example.utils.JSONUtils;
+import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.callback.FileCallback;
@@ -44,14 +47,14 @@ public class Demo2Presenter extends BaseMvpPresenter<IDemo2View> {
         if (mvpView != null) {
             mvpView.onstart();
             OkGo.<String>get(" http://202.96.98.106:8091/yjpt/app/queryRiskEnterpriseInfo.action?uid=&page=" + page)
-                    .cacheMode(CacheMode.IF_NONE_CACHE_REQUEST)
+                    .cacheMode(CacheMode.NO_CACHE)
                     .execute(new StringCallback() {
                         @Override
                         public void onSuccess(Response<String> response) {
-//                            ReportEventsBean reportEventsBean = new Gson().fromJson(response.body(), ReportEventsBean.class);
-//                            mvpView.success(reportEventsBean);
-//
-//                            String title = JSONUtils.getString(response.body(), "success", "");
+                            ReportEventsBean reportEventsBean = new Gson().fromJson(response.body(), ReportEventsBean.class);
+                            mvpView.success(reportEventsBean);
+
+                            String title = JSONUtils.getString(response.body(), "success", "");
                             Log.e("xxxx", "onSuccess: -");
 
                         }
