@@ -1,5 +1,6 @@
 package com.example.customwidget.widget;
 
+import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -18,6 +19,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import static android.animation.ValueAnimator.REVERSE;
 
 /**
  * Created by Administrator on 2018/2/27.
@@ -78,6 +81,17 @@ public class WaterView extends FrameLayout {
                 handlePoint(v);
             }
         });
+
+        upAndBotom(textView);
+    }
+
+
+    private void upAndBotom(View v) {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(v, "TranslationY", 10, 0, -10);
+        animator.setDuration(1000);
+        animator.setRepeatCount(-1);
+        animator.setRepeatMode(REVERSE);
+        animator.start();
     }
 
 
