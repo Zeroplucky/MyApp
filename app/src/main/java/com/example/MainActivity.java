@@ -11,11 +11,11 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.coordinators.CoordinatorActivity;
 import com.example.aac.AACActivity;
 import com.example.base.BaseActivity;
 import com.example.base.BaseApp;
 import com.example.base.R;
+import com.example.coordinators.CoordinatorActivity;
 import com.example.customwidget.CustomWidgetActivity;
 import com.example.huanxinim.LoginActivity;
 import com.example.okgo_http.Demo1Activity;
