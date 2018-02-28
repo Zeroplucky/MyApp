@@ -28,7 +28,7 @@ public class BaseMvpFragment<V extends BaseMvpView, P extends BaseMvpPresenter<V
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        mProxy.onCreate((V) this);
+
         super.onCreate(savedInstanceState);
         if(savedInstanceState != null){
             mProxy.onRestoreInstanceState(savedInstanceState);
@@ -39,7 +39,7 @@ public class BaseMvpFragment<V extends BaseMvpView, P extends BaseMvpPresenter<V
     @Override
     public void onResume() {
         super.onResume();
-
+        mProxy.onCreate((V) this);
     }
 
     @Override

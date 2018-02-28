@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     android:background="#fff">
 
+
+    <com.example.customwidget.widget.WaterView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"></com.example.customwidget.widget.WaterView>
+
     <Button
         android:layout_width="30dp"
         android:layout_height="30dp"

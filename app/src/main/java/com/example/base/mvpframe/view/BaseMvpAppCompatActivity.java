@@ -23,8 +23,9 @@ public class BaseMvpAppCompatActivity<V extends BaseMvpView, P extends BaseMvpPr
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        mProxy.onCreate((V) this);
+
         super.onCreate(savedInstanceState);
+
         if (savedInstanceState != null) {
             mProxy.onRestoreInstanceState(savedInstanceState.getBundle(PRESENTER_SAVE_KEY));
         }
@@ -34,6 +35,7 @@ public class BaseMvpAppCompatActivity<V extends BaseMvpView, P extends BaseMvpPr
     @Override
     protected void onResume() {
         super.onResume();
+        mProxy.onCreate((V) this);
     }
 
     @Override

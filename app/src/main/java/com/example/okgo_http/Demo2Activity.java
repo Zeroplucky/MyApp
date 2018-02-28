@@ -45,13 +45,13 @@ public class Demo2Activity extends BaseMvpAppCompatActivity<IDemo2View, Demo2Pre
         recyclerView.setLoadMoreEnable(false);
         recyclerView.setRefreshing(true);
         adapter.setOnLoadMoreListener(this, recyclerView.getRecyclerView());
-        getMvpPresenter().request(1);
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
+        getMvpPresenter().request(1);
         //观察ACIVITY是否内存泄露
 //        RefWatcher refWatcher = BaseApp.getRefWatcher(this);
 //        refWatcher.watch(this);
