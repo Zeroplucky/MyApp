@@ -1,5 +1,6 @@
 package com.example.okgo_http;
 
+import android.Manifest;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -18,6 +19,7 @@ import com.example.okgo_http.mvp.Demo1Presenter;
 import com.example.okgo_http.mvp.IDemo1View;
 import com.example.widget.TaoHeadline;
 import com.lzy.okgo.model.Progress;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.functions.Consumer;
 
 
 @CreatePresenter(Demo1Presenter.class)
@@ -41,6 +44,7 @@ public class Demo1Activity extends BaseMvpAppCompatActivity<IDemo1View, Demo1Pre
     TaoHeadline taoHeader;
     @BindView(R.id.text)
     TextView textView;
+
     @Override
     protected int getContentViewId() {
         return R.layout.activity_demo1;
@@ -64,6 +68,18 @@ public class Demo1Activity extends BaseMvpAppCompatActivity<IDemo1View, Demo1Pre
 //                        }
 //                    }
 //                });
+        //rxpermissions2 的用法
+        new RxPermissions(this).request(Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE)
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean aBoolean) throws Exception {
+                        if (!aBoolean) {
+                            Toast.makeText(mContext, "相关权限被拒，部分功能不可使用", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                });
 
         //
         List<HeadlineBean> data = new ArrayList<>();

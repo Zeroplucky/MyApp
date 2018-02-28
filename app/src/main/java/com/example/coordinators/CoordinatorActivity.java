@@ -63,8 +63,7 @@ public class CoordinatorActivity extends BaseActivity implements IFragmentItemVi
         fragments = new ArrayList<>();
         presenter.getTabs();
         //rxpermissions2 的用法
-        RxPermissions rxPermissions = new RxPermissions(this);
-        rxPermissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        new RxPermissions(this).request(Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE)
                 .subscribe(new Consumer<Boolean>() {
                     @Override
