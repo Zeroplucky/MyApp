@@ -143,21 +143,40 @@ public class ClockView extends View {
         mCanvas = canvas;
         //获取系统时间
         getTime();
-        //
-        drawNum(canvas);
-        //
+//        //
+//        drawNum(canvas);
+//        //
 //        drawArc(canvas);
-        //外弧到刻度的距离,
-        drawSweep(canvas);
-        //画秒针
-        drawSPointer();
-        //画时针，被分针覆盖
+//        //外弧到刻度的距离,
+//        drawSweep(canvas);
+//        //画秒针
+//        drawSPointer();
+//        //画时针，被分针覆盖
 //        drawHPointer();
-        //画分针
+//        //画分针
 //        drawMPointer();
+        drawSweep();
         //刷新
         invalidate();
     }
+
+
+    //扫描
+    private void drawSweep() {
+        Paint paint = new Paint();
+        paint.setColor(Color.parseColor("#55ffffff"));
+        paint.setStyle(Paint.Style.FILL);
+        mCanvas.drawCircle(mCenterPoint, mCenterPoint, radius, paint);
+        //
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(Color.parseColor("#ffffff"));
+
+        RectF rectF = new RectF(distance, distance,
+                width - distance, width - distance);
+        mCanvas.drawArc(rectF, -90, mSecondDegree, true, paint);
+
+    }
+
 
     private void drawSweep(Canvas canvas) {
         canvas.save();
@@ -184,8 +203,8 @@ public class ClockView extends View {
         paint.setTextSize(30);
         canvas.drawText("12", width / 2, distance, paint);
         canvas.drawText("3", width - distance, width / 2, paint);
-        canvas.drawText("6", width / 2, width - distance+10, paint);
-        canvas.drawText("9", distance-10, width / 2, paint);
+        canvas.drawText("6", width / 2, width - distance + 10, paint);
+        canvas.drawText("9", distance - 10, width / 2, paint);
     }
 
     private void drawSPointer() {
