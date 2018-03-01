@@ -117,7 +117,7 @@ public class Demo1Activity extends BaseMvpAppCompatActivity<IDemo1View, Demo1Pre
                 startActivity(new Intent(mContext, Demo2Activity.class));
                 break;
             case R.id.file_path:
-                getMvpPresenter().usedOkGoPost();
+                getMvpPresenter().downLoadFile(mContext);
                 break;
         }
     }
