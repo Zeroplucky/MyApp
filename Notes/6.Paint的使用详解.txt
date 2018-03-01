@@ -1,0 +1,70 @@
+
+
+博客：http://blog.csdn.net/abcdef314159/article/details/51720686
+
+Paint.Style.FILL：填充内部
+Paint.Style.FILL_AND_STROKE  ：填充内部和描边
+Paint.Style.STROKE  ：描边
+
+        //重置
+mPaint.reset();
+       //给画笔设置颜色
+mPaint.setColor(Color.RED);
+       //给画笔设置透明度
+mPaint.setAlpha(255);
+
+       //设置画笔的样式
+mPaint.setStyle(Paint.Style.FILL);//填充内容
+mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+mPaint.setStyle(Paint.Style.STROKE);//描边
+       //画笔的宽度
+mPaint.setStrokeWidth(50);
+       //线帽
+mPaint.setStrokeCap(Paint.Cap.BUTT);//没有
+mPaint.setStrokeCap(Paint.Cap.ROUND);//圆的
+mPaint.setStrokeCap(Paint.Cap.SQUARE);//方形
+mPaint.setStrokeJoin(Paint.Join.MITER);//锐角
+mPaint.setStrokeJoin(Paint.Join.ROUND);//圆弧
+mPaint.setStrokeJoin(Paint.Join.BEVEL);//直线
+        //设置文本删除线
+mPaint.setStrikeThruText(true);
+        //是否设置下划线
+mPaint.setUnderlineText(true);
+        //设置文本大小
+mPaint.setTextSize(textSize);
+         //获取文本的宽度
+float measureText = mPaint.measureText(str);
+
+
+简书  https://www.jianshu.com/p/e0dd55dd734a
+
+mPaint.setPathEffect() //设置线的效果
+------DashPathEffect -- 用来实现Path的虚线效果
+------CornerPathEffect -- 用来实现Path拐角处的圆角效果
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

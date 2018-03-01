@@ -42,6 +42,8 @@ public class MyView extends View {
         mPaint.setStyle(Paint.Style.STROKE);  //设置画笔模式为填充
         mPaint.setStrokeWidth(5f);         //设置画笔宽度为10px
 
+        mPaint.setStrokeCap(Paint.Cap.ROUND);
+
     }
 
     @Override
@@ -74,8 +76,6 @@ public class MyView extends View {
 
         path.addCircle(0, 0, 500, Path.Direction.CW);
         canvas.drawPath(path, mPaint);
-
-
 
 
     }

@@ -67,11 +67,7 @@
 
         <activity android:name="com.example.MainActivity">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <!-- 设置环信应用的AppKey    1193161015115177#qqdemo -->
@@ -129,7 +125,11 @@
         <activity android:name="com.example.customwidget.CustomWidgetActivity"></activity>
         <activity android:name="com.example.aac.AACActivity"></activity>
         <activity android:name="com.example.customwidget.CustomActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
     </application>

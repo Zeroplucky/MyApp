@@ -1,9 +1,17 @@
 
-
+https://github.com/GcsSloop/AndroidNote
 
 Canvas的常用操作
 绘制颜色	drawColor, drawRGB, drawARGB	使用单一颜色填充整个画布
 绘制基本形状	drawPoint, drawPoints, drawLine, drawLines, drawRect, drawRoundRect, drawOval, drawCircle, drawArc	依次为 点、线、矩形、圆角矩形、椭圆、圆、圆弧
+-------------------------------------
+drawArc
+     oval - 　　　　用于确定圆弧形状与尺寸的椭圆边界（即椭圆外切矩形）
+　　 startAngle -    开始角度（以时钟3点的方向为0°，逆时针为正方向）
+　　 sweepAngle -    扫过角度（以时钟3点的方向为0°，逆时针为正方向）
+　　 useCenter -     是否包含圆心
+　　 paint -           绘制圆弧的画笔
+--------------------------------------
 绘制图片	drawBitmap, drawPicture	绘制位图和图片
 绘制文本	drawText, drawPosText, drawTextOnPath	依次为 绘制文字、绘制文字时指定每个文字位置、根据路径绘制文字
 绘制路径	drawPath	绘制路径，绘制贝塞尔曲线时也需要用到该函数

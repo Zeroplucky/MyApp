@@ -6,16 +6,11 @@
     android:background="#fff">
 
 
-    <com.example.customwidget.widget.WaterView
+    <com.example.customwidget.widget.ClockView
         android:layout_width="match_parent"
-        android:layout_height="300dp"></com.example.customwidget.widget.WaterView>
-
-    <Button
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:onClick="XXXX" />
+        android:layout_height="wrap_content"
+        android:background="#3d6dff"
+        android:layout_centerInParent="true" />
 
 
 </RelativeLayout>
