@@ -73,13 +73,14 @@ public class SearchDialogFragment extends Fragment implements ISearchView {
         adapter = new SearchAdapter(null);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
+        recyclerView.setAlpha(0);
         //
         presenter = new CustomPresenter(getContext());
         presenter.getSearchData(this);
     }
 
     private void computeRecyclerViewHeight() {
-        recyclerView.post(new Runnable() {
+        recyclerView.postDelayed(new Runnable() {
             @Override
             public void run() {
                 int height = recyclerView.getHeight();
@@ -90,7 +91,7 @@ public class SearchDialogFragment extends Fragment implements ISearchView {
                 }
                 toggle();
             }
-        });
+        }, 500);
     }
 
     ValueAnimator valueAnimator;
