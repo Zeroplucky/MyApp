@@ -11,6 +11,7 @@ import android.graphics.RectF;
 import android.graphics.SweepGradient;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import java.util.Calendar;
@@ -46,13 +47,13 @@ public class ClockView extends View {
     private int weithColor;
     private int grayColor;
 
-    //渐变比
+    //渐变
     private Paint change_paint;
-    //秒针比
+    //秒针
     private Paint sPaint;
-    //分针比
+    //分针
     private Paint mPaint;
-    //是真比
+    //是真
     private Paint hPaint;
     private Canvas mCanvas;
     /* 时针路径 */
@@ -174,6 +175,7 @@ public class ClockView extends View {
         RectF rectF = new RectF(distance, distance,
                 width - distance, width - distance);
         mCanvas.drawArc(rectF, -90, mSecondDegree, true, paint);
+        Log.e("xxx", "drawSweep: "+mSecondDegree);
 
     }
 
