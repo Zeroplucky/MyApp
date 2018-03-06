@@ -122,17 +122,18 @@
             android:screenOrientation="portrait" />
         <activity android:name="com.example.superfileview.SuperFileViewActivity" />
         <activity android:name="com.example.superfileview.view.FileDisplayActivity" />
-        <activity android:name="com.example.customwidget.CustomWidgetActivity">
+        <activity
+            android:name="com.example.customwidget.CustomWidgetActivity">
+
+
+        </activity>
+        <activity android:name="com.example.aac.AACActivity"></activity>
+        <activity android:name="com.example.customwidget.CustomActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-        <activity android:name="com.example.aac.AACActivity"></activity>
-        <activity android:name="com.example.customwidget.CustomActivity">
-
         </activity>
 
     </application>

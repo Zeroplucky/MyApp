@@ -3,6 +3,7 @@ package com.example.customwidget;
 import android.graphics.Color;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -75,6 +76,7 @@ public class CustomWidgetActivity extends BaseActivity implements ICustomView {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        Log.e(TAG, "onDestroy: 2");
     }
 
 

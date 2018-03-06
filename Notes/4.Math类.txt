@@ -1,5 +1,5 @@
 
-
+http://blog.csdn.net/qq_15128547/article/details/50588988
 
 1.abs 绝对值函数
 
