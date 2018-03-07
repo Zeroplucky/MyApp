@@ -6,12 +6,10 @@
     android:background="#fff">
 
 
-    <com.example.customwidget.widget.ClockView
-        android:id="@+id/clockView"
+    <com.example.customwidget.widget.CalendarView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="#3d6dff" />
+        android:layout_height="match_parent"
+        android:background="#ffff9c" />
 
 
 </RelativeLayout>

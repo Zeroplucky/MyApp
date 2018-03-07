@@ -5,16 +5,10 @@ import android.util.Log;
 
 import com.example.base.BaseActivity;
 import com.example.base.R;
-import com.example.customwidget.widget.ClockView;
-
-import butterknife.BindView;
-import butterknife.OnClick;
 
 public class CustomActivity extends BaseActivity {
 
 
-    @BindView(R.id.clockView)
-    ClockView clockView;
 
     @Override
     protected int getContentViewId() {
@@ -34,10 +28,6 @@ public class CustomActivity extends BaseActivity {
         Log.e(TAG, "setString: ---" + s);
     }
 
-    @OnClick(R.id.clockView)
-    public void onViewClicked() {
-
-    }
 
 
     @Override
