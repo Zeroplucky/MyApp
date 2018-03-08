@@ -107,9 +107,10 @@ public class CalendarView extends FrameLayout implements View.OnClickListener {
             }
             if (days[i] != 0) {
                 TextView view = (TextView) getChildAt(i);
-                view.layout(((i % 7) * eachWidth), height * j - height / 3, eachWidth * ((i % 7) + 1), height * j + height / 3);
+                view.layout(((i % 7) * eachWidth), height * j - height / 3, eachWidth * ((i % 7) + 1), height * j + height / 2 + 20);
                 view.setText(days[i] + "");
                 view.setGravity(Gravity.CENTER);
+                view.setTag(i);
                 view.setOnClickListener(this);
             }
         }
@@ -157,12 +158,12 @@ public class CalendarView extends FrameLayout implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (click != null) {
-            click.click((TextView) v);
+            click.click((TextView) v, (Integer) v.getTag());
         }
     }
 
     public interface OnClick {
-        void click(TextView view);
+        void click(TextView view, int position);
     }
 
     private OnClick click;
@@ -181,6 +182,11 @@ public class CalendarView extends FrameLayout implements View.OnClickListener {
 
     public void setTimeAndLayout(String time) {
         this.time = time;
+        removeAllViews();
+        for (int i = 0; i < viewList.size(); i++) {
+            TextView textView = viewList.get(i);
+            addView(textView);
+        }
         this.requestLayout();
     }
 }

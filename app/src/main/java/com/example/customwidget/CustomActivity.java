@@ -31,7 +31,7 @@ public class CustomActivity extends BaseActivity {
 
         xxx.setClick(new CalendarView.OnClick() {
                          @Override
-                         public void click(TextView view) {
+                         public void click(TextView view, int p) {
                              view.setBackgroundColor(Color.RED);
                              toast(view.getText().toString());
                          }
