@@ -1,6 +1,7 @@
 package com.example.customwidget;
 
 import android.graphics.Color;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.base.BaseActivity;
@@ -18,6 +19,11 @@ public class CustomActivity extends BaseActivity {
     @Override
     protected int getContentViewId() {
         return R.layout.activity_custom_;
+    }
+
+
+    public void clickToChang(View view) {
+        xxx.setTimeAndLayout("2018-01-01");
     }
 
     @Override

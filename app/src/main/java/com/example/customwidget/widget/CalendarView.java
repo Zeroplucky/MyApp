@@ -39,6 +39,7 @@ public class CalendarView extends FrameLayout implements View.OnClickListener {
     private Paint paintWeek;
     private List<TextView> viewList;
     private int height;
+    private String time = "2018-02-01";
 
     public CalendarView(Context context) {
         this(context, null);
@@ -132,7 +133,7 @@ public class CalendarView extends FrameLayout implements View.OnClickListener {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = null;
         try {
-            date = sdf.parse("2018-01-01");
+            date = sdf.parse(time);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -172,5 +173,14 @@ public class CalendarView extends FrameLayout implements View.OnClickListener {
 
     public void setClick(OnClick click) {
         this.click = click;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTimeAndLayout(String time) {
+        this.time = time;
+        this.requestLayout();
     }
 }
