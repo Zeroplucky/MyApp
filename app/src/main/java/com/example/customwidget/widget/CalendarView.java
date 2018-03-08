@@ -7,9 +7,9 @@ import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -27,17 +27,16 @@ import java.util.List;
  * Created by Administrator on 2018/3/6.
  */
 
-public class CalendarView extends FrameLayout {
+public class CalendarView extends FrameLayout implements View.OnClickListener {
 
     public static final String TAG = "CalendarView";
     public static final String[] week = {"日", "一", "二", "三", "四", "五", "六"};
+    private int[] days = new int[6 * 7];
     private TextView view;
-    private int paddingLeft;
-    private int paddingRight;
+
     private int measuredWidth;
     private int eachWidth;
     private Paint paintWeek;
-    private int statusBarHeight;
     private List<TextView> viewList;
     private int height;
 
@@ -75,54 +74,54 @@ public class CalendarView extends FrameLayout {
 
     private void Measure(int w, int h) {
         int sizeW = MeasureSpec.getSize(w);
-        int modeW = MeasureSpec.getMode(w);
-
-        int sizeH = MeasureSpec.getSize(h);
-        int modeH = MeasureSpec.getMode(h);
-
         height = view.getLayoutParams().height;
-        Log.e(TAG, "Measure: " + height);
+//        Log.e(TAG, "Measure: " + height);
         setMeasuredDimension(sizeW, height * 7);
-
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        paddingLeft = getPaddingLeft();
-        paddingRight = getPaddingRight();
         measuredWidth = getMeasuredWidth();
-        statusBarHeight = getStatusBarHeight(getContext());
-
         eachWidth = measuredWidth / 7;
-        Log.e(TAG, "onSizeChanged: " + measuredWidth);
-        getMyCalendar();
+//        Log.e(TAG, "onSizeChanged: " + measuredWidth);
+        removeAllViews();
+        for (int i = 0; i < viewList.size(); i++) {
+            TextView textView = viewList.get(i);
+            addView(textView);
+        }
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
+        int childCount = getChildCount();
+        getMyCalendar();
+        Log.e(TAG, "onLayout: ------------------");
+        int j = 0;
+        for (int i = 0; i < childCount; i++) {
+//            Log.e(TAG, "onLayout: " + days[i]);
+            if (i % 7 == 0) {
+                j++;
+            }
+            if (days[i] != 0) {
+                TextView view = (TextView) getChildAt(i);
+                view.layout(((i % 7) * eachWidth), height * j - height / 3, eachWidth * ((i % 7) + 1), height * j + height / 3);
+                view.setText(days[i] + "");
+                view.setGravity(Gravity.CENTER);
+                view.setOnClickListener(this);
+            }
+        }
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Log.e(TAG, "onDraw: ");
+//        Log.e(TAG, "onDraw: ");
         for (int i = 0; i < week.length; i++) {
-            canvas.drawText(week[i], eachWidth / 2 + (i * eachWidth), height, paintWeek);
+            canvas.drawText(week[i], eachWidth / 2 + (i * eachWidth) - 10, height / 2, paintWeek);
         }
     }
-
-
-    private int getStatusBarHeight(Context context) {
-        int result = 0;
-        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-            result = context.getResources().getDimensionPixelSize(resourceId);
-        }
-        return result;
-    }
-
 
     private void getView() {
         View rootView = LayoutInflater.from(getContext()).inflate(R.layout.calendar_view_item, this, false);
@@ -133,7 +132,7 @@ public class CalendarView extends FrameLayout {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = null;
         try {
-            date = sdf.parse("2017-08-14");
+            date = sdf.parse("2018-01-01");
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -145,34 +144,33 @@ public class CalendarView extends FrameLayout {
         calendar.set(Calendar.DATE, 1);
         // 获取该月1号是本周第几天
         int firstDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        Log.e(TAG, "getMyCalendar: " + firstDayOfWeek);
         // 获取该月的最后一天是几号
         int lastDay = calendar.getActualMaximum(Calendar.DATE);
-        // 每个月多需要6行7列即可显示完整
-        int[] days = new int[6 * 7];
         // 为数组填充值
         for (int i = 1; i <= lastDay; i++) {
             days[i + (firstDayOfWeek - 1) - 1] = i;
         }
-        int j = 1;
-        for (int i = 0; i < days.length; i++) {
-            System.out.print("\t");
-            if ((i + 1) % 7 == 0) {
-                System.out.println("");
-                j++;
-            }
-            if (days[i] != 0) {
-                if (days[i] == day) {
-                    System.out.print("*");
-                }
-                System.out.print(days[i]);
-                TextView textView = viewList.get(i);
-                textView.layout((i * eachWidth), height * j - height / 2, eachWidth * (i + 1), height * j + height / 2);
-                Log.e(TAG, "getMyCalendar: " + i * eachWidth + " " + (height * j - height / 2) + "  " + (eachWidth * (i + 1)) + " " +(height * j + height / 2));
-                viewList.get(i).setText(days[i] + "");
-                ViewGroup parent = (ViewGroup) textView.getParent();
-                parent.removeAllViews();
-                addView(textView);
-            }
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (click != null) {
+            click.click((TextView) v);
         }
+    }
+
+    public interface OnClick {
+        void click(TextView view);
+    }
+
+    private OnClick click;
+
+    public OnClick getClick() {
+        return click;
+    }
+
+    public void setClick(OnClick click) {
+        this.click = click;
     }
 }

@@ -1,14 +1,19 @@
 package com.example.customwidget;
 
-import android.support.annotation.IntRange;
-import android.util.Log;
+import android.graphics.Color;
+import android.widget.TextView;
 
 import com.example.base.BaseActivity;
 import com.example.base.R;
+import com.example.customwidget.widget.CalendarView;
+
+import butterknife.BindView;
 
 public class CustomActivity extends BaseActivity {
 
 
+    @BindView(R.id.xxx)
+    CalendarView xxx;
 
     @Override
     protected int getContentViewId() {
@@ -18,21 +23,16 @@ public class CustomActivity extends BaseActivity {
     @Override
     protected void initView() {
 
-        setString(0);
+        xxx.setClick(new CalendarView.OnClick() {
+                         @Override
+                         public void click(TextView view) {
+                             view.setBackgroundColor(Color.RED);
+                             toast(view.getText().toString());
+                         }
+                     }
+        );
 
     }
 
 
-    private void setString(@IntRange(from = 0, to = 255) int s) {
-
-        Log.e(TAG, "setString: ---" + s);
-    }
-
-
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-    }
 }

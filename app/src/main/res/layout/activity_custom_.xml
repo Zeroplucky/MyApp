@@ -7,6 +7,7 @@
 
 
     <com.example.customwidget.widget.CalendarView
+        android:id="@+id/xxx"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ffff9c" />
