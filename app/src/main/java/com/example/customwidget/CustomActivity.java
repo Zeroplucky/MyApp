@@ -1,8 +1,9 @@
 package com.example.customwidget;
 
-import android.graphics.Color;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import com.example.base.BaseActivity;
 import com.example.base.R;
@@ -23,20 +24,21 @@ public class CustomActivity extends BaseActivity {
 
 
     public void clickToChang(View view) {
-        xxx.setTimeAndLayout("2018-01-01");
+        Log.e(TAG, "clickToChang: " + xxx.getLeft() + "    " + xxx.getTranslationX() + " " + xxx.getScaleX());
+        xxx.animate()
+                .setDuration(1000)
+                .xBy(50)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+                        Log.e(TAG, "clickToChang: " + xxx.getLeft() + "    " + xxx.getTranslationX() + " " + xxx.getScaleX());
+                    }
+                }).start();
     }
 
     @Override
     protected void initView() {
-
-        xxx.setClick(new CalendarView.OnClick() {
-                         @Override
-                         public void click(TextView view, int p) {
-                             view.setBackgroundColor(Color.RED);
-                             toast(view.getText().toString());
-                         }
-                     }
-        );
 
     }
 

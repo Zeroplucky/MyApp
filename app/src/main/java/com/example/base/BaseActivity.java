@@ -30,7 +30,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public static final int LOAD_FAILURE = LOADING + 3;//加载失败
     public static final int LOAD_NO_DATA = LOADING + 4;//无数据
 
-    protected final static String TAG = "android";
+    protected final static String TAG = "xxx";
     private View fl_failure, fl_no_data, fl_loading;
     protected LayoutInflater mInflater;
     Unbinder unbinder;
