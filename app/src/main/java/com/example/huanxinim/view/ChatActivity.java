@@ -278,6 +278,7 @@ public class ChatActivity extends BaseActivity implements IChatView {
     @Override
     protected void onDestroy() {
         EMClient.getInstance().chatManager().removeMessageListener(mEMMessageListener);
+        MediaManager.release();
         super.onDestroy();
     }
 
