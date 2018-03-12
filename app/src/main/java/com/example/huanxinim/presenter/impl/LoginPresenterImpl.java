@@ -59,8 +59,7 @@ public class LoginPresenterImpl implements ILoginPresenter {
                 ThreadUtils.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        EMClient.getInstance().logout(true);
-                        mLoginView.onLodinAgin();
+                        mLoginView.onLoginSuccess();
                     }
                 });
             } else {
