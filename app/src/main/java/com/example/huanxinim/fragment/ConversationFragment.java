@@ -22,7 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-
+//聊天
 public class ConversationFragment extends BaseFragment implements IConversationView {
 
     @BindView(R.id.img_back)

@@ -25,7 +25,7 @@ import com.hyphenate.chat.EMClient;
 import java.util.List;
 
 import butterknife.BindView;
-
+//通讯录
 public class ContactFragment extends BaseFragment implements IContactView {
 
 
