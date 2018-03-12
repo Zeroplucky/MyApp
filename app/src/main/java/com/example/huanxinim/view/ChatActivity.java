@@ -169,7 +169,7 @@ public class ChatActivity extends BaseActivity implements IChatView {
         //播放语音
         mMessageListAdapter.setClickListener(new MessageListAdapter.onItemClickListener() {
             @Override
-            public void onVoidClick(String fileName, final ImageView view, int type) {
+            public void onVoidClick(String file, final ImageView view, int type) {
                 switch (type) {
                     case 1:
                         animationRes = R.drawable.voice_left;
@@ -183,7 +183,7 @@ public class ChatActivity extends BaseActivity implements IChatView {
                 view.setImageResource(animationRes);
                 animDrawable = (AnimationDrawable) view.getDrawable();
                 animDrawable.start();
-                MediaManager.playSound(fileName, new MediaPlayer.OnCompletionListener() {
+                MediaManager.playSound(file, new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mp) {
                         animDrawable.stop();

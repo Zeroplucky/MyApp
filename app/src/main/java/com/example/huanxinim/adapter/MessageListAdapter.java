@@ -107,7 +107,7 @@ public class MessageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     public interface onItemClickListener {
-        void onVoidClick(String fileName, ImageView chatItemVoice, int type);
+        void onVoidClick(String file, ImageView chatItemVoice, int type);
     }
 
     public onItemClickListener clickListener;

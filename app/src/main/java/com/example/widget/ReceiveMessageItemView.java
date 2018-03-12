@@ -1,9 +1,9 @@
 package com.example.widget;
 
 import android.content.Context;
-import android.os.Environment;
 import android.os.Handler;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -84,14 +84,14 @@ public class ReceiveMessageItemView extends RelativeLayout {
             mReceiveMessage.setSpanText(handler, message, true);
         } else if (body instanceof EMVoiceMessageBody) {
             chatItemVoice.setVisibility(VISIBLE);
-            final String fileName = ((EMVoiceMessageBody) body).getFileName();
             int length = ((EMVoiceMessageBody) body).getLength();
+            final String remoteUrl = ((EMVoiceMessageBody) body).getRemoteUrl();
             mReceiveMessage.setSpanText(handler, "时长 " + Utils.long2String(length), true);
             chatItemLayout.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (clickListener != null) {
-                        clickListener.onVoidClick(Environment.getExternalStorageDirectory() + "/record/" + fileName, chatItemVoice, 1);
+                        clickListener.onVoidClick(remoteUrl, chatItemVoice, 1);
                     }
                 }
             });
