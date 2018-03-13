@@ -105,9 +105,9 @@ public class EmojiKeyboard {
 
     private void init(Activity activity, EditText editText, View emojiPanelView, final ImageView emojiView, View contentView, final NoScrollViewPager viewPager, final View mAddButton) {
         this.activity = activity;
-        this.editText = editText;
-        this.emojiLayout = emojiPanelView;
-        this.contentView = contentView;
+        this.editText = editText; //消息框
+        this.emojiLayout = emojiPanelView; // root
+        this.contentView = contentView; //recyclerView
         this.mAddButton = mAddButton;
         this.editText.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -163,6 +163,8 @@ public class EmojiKeyboard {
         emojiView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mVoiceText.setVisibility(mVoiceText.getVisibility() == View.VISIBLE ? View.GONE : View.GONE);
+                EmojiKeyboard.this.editText.setVisibility(mVoiceText.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
                 if (EmojiKeyboard.this.emojiLayout.isShown()) {
                     if (isShowEmoji) {
                         lockContentViewHeight();
@@ -201,6 +203,8 @@ public class EmojiKeyboard {
         mAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mVoiceText.setVisibility(mVoiceText.getVisibility() == View.VISIBLE ? View.GONE : View.GONE);
+                EmojiKeyboard.this.editText.setVisibility(mVoiceText.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
                 if (EmojiKeyboard.this.emojiLayout.isShown()) {
                     if (isShowAdd) {
                         lockContentViewHeight();

@@ -52,10 +52,10 @@ public class ChatActivity extends BaseActivity implements IChatView {
     ImageView emotionVoice;
     @BindView(R.id.et_inputMessage)
     EditText etInputMessage;
-    @BindView(R.id.emotion_add)
+    @BindView(R.id.iv_add)
     ImageView emotionAdd;
-    @BindView(R.id.iv_more)
-    ImageView ivMore;
+    @BindView(R.id.bt_emotion)
+    ImageView bt_emotion;
     @BindView(R.id.viewPager)
     NoScrollViewPager viewpager;
     @BindView(R.id.panel_content)
@@ -118,7 +118,7 @@ public class ChatActivity extends BaseActivity implements IChatView {
         mRecyclerView.addOnScrollListener(mOnScrollListener);
         EMClient.getInstance().chatManager().addMessageListener(mEMMessageListener);
         mChatPresenter.loadMessages(mUserName);// 获取消息
-        emojiKeyboard = EmojiKeyboard.newInstance(this, etInputMessage, llRootEmojiPanel, ivMore, mRecyclerView, viewpager, emotionAdd);
+        emojiKeyboard = EmojiKeyboard.newInstance(this, etInputMessage, llRootEmojiPanel, bt_emotion, mRecyclerView, viewpager, emotionAdd);
         emojiKeyboard.bindToPresenter(mChatPresenter)
                 .bindToSendButton(emotionSend)
                 .bindToVoiceButton(emotionVoice)
