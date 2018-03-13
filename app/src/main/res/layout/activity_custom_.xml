@@ -1,21 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.customwidget.widget.MyViewDragHelper xmlns:android="http://schemas.android.com/apk/res/android"
-												  xmlns:app="http://schemas.android.com/apk/res-auto"
-												  android:layout_width="match_parent"
-												  android:layout_height="match_parent"
-												  android:background="#fff"
-												  android:orientation="vertical">
+<com.example.customwidget.widget.MyDragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
 
 
-	<RelativeLayout
-		android:background="#fab5b5"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"/>
-
-	<RelativeLayout
-		android:background="#4b4141"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F0F" />
 
 
-</com.example.customwidget.widget.MyViewDragHelper>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FF0">
+
+        <com.example.customwidget.widget.SlideDeleteLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#fab5b5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="类容" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:background="#4b4141"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="置顶" />
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="删除" />
+
+            </LinearLayout>
+
+
+        </com.example.customwidget.widget.SlideDeleteLayout>
+
+
+    </LinearLayout>
+
+
+</com.example.customwidget.widget.MyDragLayout>

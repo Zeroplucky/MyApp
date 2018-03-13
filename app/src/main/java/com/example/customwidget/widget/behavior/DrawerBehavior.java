@@ -28,6 +28,9 @@ import android.view.View;
 
 import com.example.base.R;
 
+/*
+* https://github.com/JakeWharton/DrawerBehavior
+* */
 public final class DrawerBehavior extends CoordinatorLayout.Behavior<View> {
     private static void validateGravity(int gravity) {
         if (gravity != Gravity.LEFT
