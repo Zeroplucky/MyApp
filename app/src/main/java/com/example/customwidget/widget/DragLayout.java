@@ -381,7 +381,7 @@ public class DragLayout extends FrameLayout {
 		
 		// 移动的范围
 		mRange = (int) (mWidth * 0.6f);
-		
+
 	}
 	
 }

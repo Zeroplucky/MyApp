@@ -1,59 +1,67 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowAnimationStyle">@style/FadeAnimationStyle</item>
-    </style>
+	<!-- Base application theme. -->
+	<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+		<!-- Customize your theme here. -->
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
+		<item name="android:windowAnimationStyle">@style/FadeAnimationStyle</item>
+	</style>
 
 
-    <!--
-    当我们从 A1 启动 A2 时，A1 从屏幕上消失，这个动画叫做 android:activityOpenExitAnimation
-    当我们从 A1 启动 A2 时，A2 出现在屏幕上，这个动画叫做 android:activityOpenEnterAnimation
-    当我们从 A2 退出回到 A1 时，A2 从屏幕上消失，这个叫做 android:activityCloseExitAnimation
-    当我们从 A2 退出回到 A1 时，A1 出现在屏幕上，这个叫做 android:activityCloseEnterAnimation
-    -->
-    <style name="FadeAnimationStyle" parent="@android:style/Animation.Activity">
-        <item name="android:windowEnterAnimation">@null</item>
-        <item name="android:windowExitAnimation">@null</item>
-        <item name="android:activityOpenExitAnimation">@anim/push_left_out</item>
-        <item name="android:activityOpenEnterAnimation">@anim/push_right_in</item>
-        <item name="android:activityCloseExitAnimation">@anim/push_bottom_out</item>
-        <item name="android:activityCloseEnterAnimation">@null</item>
-    </style>
+	<!--
+	当我们从 A1 启动 A2 时，A1 从屏幕上消失，这个动画叫做 android:activityOpenExitAnimation
+	当我们从 A1 启动 A2 时，A2 出现在屏幕上，这个动画叫做 android:activityOpenEnterAnimation
+	当我们从 A2 退出回到 A1 时，A2 从屏幕上消失，这个叫做 android:activityCloseExitAnimation
+	当我们从 A2 退出回到 A1 时，A1 出现在屏幕上，这个叫做 android:activityCloseEnterAnimation
+	-->
+	<style name="FadeAnimationStyle" parent="@android:style/Animation.Activity">
+		<item name="android:windowEnterAnimation">@null</item>
+		<item name="android:windowExitAnimation">@null</item>
+		<item name="android:activityOpenExitAnimation">@anim/push_left_out</item>
+		<item name="android:activityOpenEnterAnimation">@anim/push_right_in</item>
+		<item name="android:activityCloseExitAnimation">@anim/push_bottom_out</item>
+		<item name="android:activityCloseEnterAnimation">@null</item>
+	</style>
 
-    <style name="text_subhead_black">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/text_title</item>
-        <item name="android:textSize">15sp</item>
-    </style>
+	<style name="text_subhead_black">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textColor">@color/text_title</item>
+		<item name="android:textSize">15sp</item>
+	</style>
 
-    <style name="DialogTheme" parent="android:Theme.Dialog">
-        <item name="android:windowBackground">@drawable/dialog_background</item>
-    </style>
+	<style name="DialogTheme" parent="android:Theme.Dialog">
+		<item name="android:windowBackground">@drawable/dialog_background</item>
+	</style>
 
-    <style name="AppTheme.ToolbarPopupOverlay" parent="ThemeOverlay.AppCompat.Light">
-        <item name="overlapAnchor">false</item>
-    </style>
+	<style name="AppTheme.ToolbarPopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+		<item name="overlapAnchor">false</item>
+	</style>
 
-    <style name="TextAppearance.ExpandedTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textSize">26sp</item>
-    </style>
+	<style name="TextAppearance.ExpandedTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+		<item name="android:textSize">26sp</item>
+	</style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+	<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+	<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
-    <style name="AVLoadingIndicatorView">
-        <item name="minWidth">48dip</item>
-        <item name="maxWidth">48dip</item>
-        <item name="minHeight">48dip</item>
-        <item name="maxHeight">48dip</item>
-        <item name="indicatorName">BallPulseIndicator</item>
-    </style>
+	<style name="AVLoadingIndicatorView">
+		<item name="minWidth">48dip</item>
+		<item name="maxWidth">48dip</item>
+		<item name="minHeight">48dip</item>
+		<item name="maxHeight">48dip</item>
+		<item name="indicatorName">BallPulseIndicator</item>
+	</style>
+
+	<style name="StyleMenuRight" parent="android:Widget.TextView">
+		<item name="android:gravity">center</item>
+		<item name="android:padding">3dp</item>
+		<item name="android:textColor">@android:color/white</item>
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+	</style>
 
 </resources>

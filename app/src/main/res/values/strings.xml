@@ -1,24 +1,31 @@
 <resources>
-    <string name="app_name">练手应用</string>
-    <string name="demo0">okgo</string>
-    <string name="demo1">视频</string>
-    <string name="demo2">环信IM</string>
-    <string name="demo3">协调者布局</string>
-    <string name="demo4">自定义学习</string>
-    <string name="demo5">文件读取</string>
-    <string name="demo6">Android架构组件</string>
-    <string name="user_name_error">用户名不合法，3到20位，首字母必须是字母</string>
-    <string name="user_password_error">密码不合法，3到20位数字</string>
-    <string name="user_login_another_device">用户在其他设备登录</string>
-    <string name="messages">消息</string>
-    <string name="contacts">联系人</string>
-    <string name="void_message">语音消息</string>
-    <string name="chat_with">与%s聊天中</string>
-    <string name="receive_new_message">收到新消息</string>
+	<string name="app_name">练手应用</string>
+	<string name="demo0">okgo</string>
+	<string name="demo1">视频</string>
+	<string name="demo2">环信IM</string>
+	<string name="demo3">协调者布局</string>
+	<string name="demo4">自定义学习</string>
+	<string name="demo5">文件读取</string>
+	<string name="demo6">Android架构组件</string>
+	<string name="user_name_error">用户名不合法，3到20位，首字母必须是字母</string>
+	<string name="user_password_error">密码不合法，3到20位数字</string>
+	<string name="user_login_another_device">用户在其他设备登录</string>
+	<string name="messages">消息</string>
+	<string name="contacts">联系人</string>
+	<string name="void_message">语音消息</string>
+	<string name="chat_with">与%s聊天中</string>
+	<string name="receive_new_message">收到新消息</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_aac">AACActivity</string>
+	<string name="conversation1">扫一扫</string>
+	<string name="conversation2">建讨论组</string>
+	<string name="conversation3">面对面</string>
+	<string name="conversation4">多人通话</string>
+	<string name="conversation5">我的电脑</string>
+	<string name="conversation6">加好友</string>
+
+	<!-- TODO: Remove or change this placeholder text -->
+	<string name="hello_blank_fragment">Hello blank fragment</string>
+	<string name="title_activity_aac">AACActivity</string>
 
 
 </resources>
