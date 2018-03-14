@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -21,6 +22,32 @@ public class MyDragLayout extends FrameLayout {
     private int contentWidth;
     private int mRand;
     private int contentHeight;
+
+    private Status mStatus = Status.Close;
+
+    public static enum Status {
+        Open, Close, Draging
+    }
+
+    private OnDragListener mDragListener;
+
+    public interface OnDragListener {
+        void onClose();
+
+        void onStartOpen();
+
+        void onOpen();
+
+        void onDrag();
+    }
+
+    public OnDragListener getmDragListener() {
+        return mDragListener;
+    }
+
+    public void setmDragListener(OnDragListener mDragListener) {
+        this.mDragListener = mDragListener;
+    }
 
     public MyDragLayout(Context context) {
         super(context);
@@ -64,9 +91,22 @@ public class MyDragLayout extends FrameLayout {
          */
         @Override
         public void onViewCaptured(View capturedChild, int activePointerId) {
-//            Log.e(TAG, "down:   " + capturedChild.toString());
+            Log.e(TAG, "onViewCaptured:   -----------" + capturedChild.toString());
             super.onViewCaptured(capturedChild, activePointerId);
 
+        }
+
+
+        /**
+         * 实现此方法
+         *
+         * @param child
+         * @return
+         */
+        @Override
+        public int getViewHorizontalDragRange(View child) {
+            Log.e(TAG, "getViewHorizontalDragRange:  -- " + child.toString());
+            return mRand;
         }
 
         /**
@@ -91,7 +131,28 @@ public class MyDragLayout extends FrameLayout {
         @Override
         public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
             super.onViewPositionChanged(changedView, left, top, dx, dy);
+            //当前状态
+            Status updateStatus = updateStatus();
+            if (updateStatus != mStatus) {
+                if (mStatus == Status.Close && updateStatus == Status.Draging) {
+                    if (mDragListener != null) {
+                        mDragListener.onStartOpen();
+                    }
+                } else if (updateStatus == Status.Close) {
+                    if (mDragListener != null)
+                        mDragListener.onClose();
+                } else if (updateStatus == Status.Open) {
+                    if (mDragListener != null)
+                        mDragListener.onOpen();
+                } else {
 
+                }
+            } else {
+                if (mDragListener != null)
+                    mDragListener.onDrag();
+            }
+
+            mStatus = updateStatus;
         }
 
         /**
@@ -117,17 +178,29 @@ public class MyDragLayout extends FrameLayout {
                         ViewCompat.postInvalidateOnAnimation(MyDragLayout.this);
                     }
                 } else { //close
-                    if (dragHelper.smoothSlideViewTo(contentView, 0, 0)) {
-                        ViewCompat.postInvalidateOnAnimation(MyDragLayout.this);
-                    }
+                    close();
                 }
             } else {
-                if (dragHelper.smoothSlideViewTo(contentView, 0, 0)) {
-                    ViewCompat.postInvalidateOnAnimation(MyDragLayout.this);
-                }
+                close();
             }
         }
 
+    }
+
+    public void close() {
+        if (dragHelper.smoothSlideViewTo(contentView, 0, 0)) {
+            ViewCompat.postInvalidateOnAnimation(MyDragLayout.this);
+        }
+    }
+
+    public Status updateStatus() {
+        if (contentView.getLeft() == 0) {
+            return Status.Close;
+        } else if (contentView.getLeft() == mRand) {
+            return Status.Open;
+        } else {
+            return Status.Draging;
+        }
     }
 
 

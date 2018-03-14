@@ -18,44 +18,10 @@
         android:layout_height="match_parent"
         android:background="#FF0">
 
-        <com.example.customwidget.widget.SlideDeleteLayout
+        <ListView
+            android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="#fab5b5">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:text="类容" />
-            </RelativeLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:background="#4b4141"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="置顶" />
-
-                <TextView
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="删除" />
-
-            </LinearLayout>
-
-
-        </com.example.customwidget.widget.SlideDeleteLayout>
+            android:layout_height="match_parent" />
 
 
     </LinearLayout>

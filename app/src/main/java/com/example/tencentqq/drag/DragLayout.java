@@ -78,10 +78,10 @@ public class DragLayout extends FrameLayout {
     SimpleOnGestureListener mYGestureListener = new SimpleOnGestureListener() {
         public boolean onScroll(MotionEvent e1, MotionEvent e2,
                                 float distanceX, float distanceY) {
-            return Math.abs(distanceX) >= Math.abs(distanceY);
+            boolean b = Math.abs(distanceX) >= Math.abs(distanceY);
+            Log.e("xxx", "onScroll: " + b);
+            return b;
         }
-
-        ;
     };
 
     @Override
@@ -445,8 +445,10 @@ public class DragLayout extends FrameLayout {
             }
         }
 
-        return mDragHelper.shouldInterceptTouchEvent(ev)
-                & mGestureDetector.onTouchEvent(ev);
+        boolean mDrag = mDragHelper.shouldInterceptTouchEvent(ev);
+        boolean mGesture = mGestureDetector.onTouchEvent(ev);
+        Log.e("xxxx", "onInterceptTouchEvent: " + mDrag + "   " + mGesture);
+        return mDrag & mGesture;
     }
 
     public void close() {

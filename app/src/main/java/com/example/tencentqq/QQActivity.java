@@ -4,38 +4,30 @@ package com.example.tencentqq;
  * Created by ZhangPeng on 2018/3/13.
  */
 
-import android.view.View;
-import android.widget.AbsListView;
-
-import com.example.tencentqq.drag.DragLayout;
-
-import java.util.Random;
-
 import android.app.ListActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.AbsListView;
-import android.widget.AbsListView.OnScrollListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-
-import com.example.MainActivity;
 import com.example.base.R;
 import com.example.tencentqq.domain.Cheeses;
 import com.example.tencentqq.drag.DragLayout;
 import com.example.tencentqq.drag.DragRelativeLayout;
 import com.example.tencentqq.swipe.SwipeListAdapter;
 import com.example.tencentqq.util.Utils;
+import com.jaeger.library.StatusBarUtil;
 import com.nineoldandroids.view.ViewHelper;
+
+import java.util.Random;
 
 public class QQActivity extends ListActivity implements View.OnClickListener {
 
@@ -49,7 +41,7 @@ public class QQActivity extends ListActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_qq_);
-
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorAccent), 0);
         initLeftContent();
         initMainContent();
     }

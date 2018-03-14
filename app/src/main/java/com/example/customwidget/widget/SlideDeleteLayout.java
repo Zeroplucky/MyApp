@@ -48,6 +48,11 @@ public class SlideDeleteLayout extends FrameLayout {
         }
 
         @Override
+        public int getViewHorizontalDragRange(View child) {
+            return 10;
+        }
+
+        @Override
         public int clampViewPositionHorizontal(View child, int left, int dx) {
             if (left <= -mRightWidth) {
                 left = -mRightWidth;
@@ -106,7 +111,7 @@ public class SlideDeleteLayout extends FrameLayout {
 //            case MotionEvent.ACTION_UP:
 //                return dragHelper.shouldInterceptTouchEvent(ev);
 //        }
-        return super.onInterceptTouchEvent(ev);
+        return dragHelper.shouldInterceptTouchEvent(ev);
     }
 
     @Override
@@ -115,10 +120,10 @@ public class SlideDeleteLayout extends FrameLayout {
 //            case MotionEvent.ACTION_DOWN:
 //            case MotionEvent.ACTION_MOVE:
 //            case MotionEvent.ACTION_UP:
-//                dragHelper.processTouchEvent(ev);
-//                return true;
+        dragHelper.processTouchEvent(ev);
+        return true;
 //        }
-        return super.onTouchEvent(ev);
+//        return super.onTouchEvent(ev);
     }
 
 

@@ -16,10 +16,11 @@ import com.example.base.BaseActivity;
 import com.example.base.BaseApp;
 import com.example.base.R;
 import com.example.coordinators.CoordinatorActivity;
-import com.example.customwidget.CustomWidgetActivity;
+import com.example.customwidget.CustomActivity;
 import com.example.huanxinim.LoginActivity;
 import com.example.okgo_http.Demo1Activity;
 import com.example.superfileview.SuperFileViewActivity;
+import com.example.tencentqq.QQActivity;
 import com.example.video.VideoActivity;
 
 import butterknife.BindView;
@@ -37,6 +38,7 @@ public class MainActivity extends BaseActivity {
             R.drawable.example,
             R.drawable.example,
             R.drawable.example,
+            R.drawable.example,
             R.drawable.example};
     private int[] menuText = {
             R.string.demo0,
@@ -45,7 +47,8 @@ public class MainActivity extends BaseActivity {
             R.string.demo3,
             R.string.demo4,
             R.string.demo5,
-            R.string.demo6
+            R.string.demo6,
+            R.string.demo7
     };
 
     @Override
@@ -81,13 +84,16 @@ public class MainActivity extends BaseActivity {
                         intent = new Intent(mContext, CoordinatorActivity.class);
                         break;
                     case 4:
-                        intent = new Intent(mContext, CustomWidgetActivity.class);
+                        intent = new Intent(mContext, CustomActivity.class);
                         break;
                     case 5:
                         intent = new Intent(mContext, SuperFileViewActivity.class);
                         break;
                     case 6:
                         intent = new Intent(mContext, AACActivity.class);
+                        break;
+                    case 7:
+                        intent = new Intent(mContext, QQActivity.class);
                         break;
                 }
                 if (intent == null) {
