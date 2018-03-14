@@ -49,7 +49,7 @@ public class SlideDeleteLayout extends FrameLayout {
 
         @Override
         public int getViewHorizontalDragRange(View child) {
-            return 10;
+            return mRightWidth;
         }
 
         @Override
@@ -77,9 +77,9 @@ public class SlideDeleteLayout extends FrameLayout {
             super.onViewReleased(releasedChild, xvel, yvel);
 
             if (xvel == 0 && leftView.getLeft() > -mRightWidth / 2) {
-                if (dragHelper.smoothSlideViewTo(leftView, -mRightWidth, 0)) {
-                    ViewCompat.postInvalidateOnAnimation(SlideDeleteLayout.this);
-                }
+//                if (dragHelper.smoothSlideViewTo(leftView, -mRightWidth, 0)) {
+//                    ViewCompat.postInvalidateOnAnimation(SlideDeleteLayout.this);
+//                }
             } else if (xvel < 0) {
                 if (dragHelper.smoothSlideViewTo(leftView, -mRightWidth, 0)) {
                     ViewCompat.postInvalidateOnAnimation(SlideDeleteLayout.this);
@@ -140,6 +140,7 @@ public class SlideDeleteLayout extends FrameLayout {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         mWidth = leftView.getMeasuredWidth();
         mHeight = leftView.getMeasuredHeight();
+        int paddingLeft = getPaddingLeft();
 
         mRightWidth = rightView.getMeasuredWidth();
 

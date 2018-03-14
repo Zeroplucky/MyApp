@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.example.customwidget.widget.MyDragLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/myDragLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
@@ -13,18 +14,19 @@
         android:background="#F0F" />
 
 
-    <LinearLayout
+    <com.example.customwidget.widget.MyDragLinearLayout
+        android:id="@+id/myDragLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FF0">
+        android:background="#fafaf5">
 
-        <ListView
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
 
-    </LinearLayout>
+    </com.example.customwidget.widget.MyDragLinearLayout>
 
 
 </com.example.customwidget.widget.MyDragLayout>

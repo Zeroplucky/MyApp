@@ -1,10 +1,12 @@
 package com.example.customwidget.widget;
 
 import android.content.Context;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -24,6 +26,7 @@ public class MyDragLayout extends FrameLayout {
     private int contentHeight;
 
     private Status mStatus = Status.Close;
+    private GestureDetectorCompat gestureDetector;
 
     public static enum Status {
         Open, Close, Draging
@@ -51,22 +54,28 @@ public class MyDragLayout extends FrameLayout {
 
     public MyDragLayout(Context context) {
         super(context);
-        init();
+        init(context);
 
     }
 
     public MyDragLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(context);
     }
 
     public MyDragLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        init(context);
     }
 
-    private void init() {
+    private void init(Context context) {
         dragHelper = ViewDragHelper.create(this, 1.0f, new ViewCallback());
+        gestureDetector = new GestureDetectorCompat(context, new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+                return Math.abs(distanceX) > Math.abs(distanceY);
+            }
+        });
     }
 
     private class ViewCallback extends ViewDragHelper.Callback {
@@ -214,7 +223,7 @@ public class MyDragLayout extends FrameLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        return dragHelper.shouldInterceptTouchEvent(ev);
+        return dragHelper.shouldInterceptTouchEvent(ev) & gestureDetector.onTouchEvent(ev);
     }
 
     @Override

@@ -46,7 +46,6 @@ public class MyDragLinearLayout extends LinearLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        float rawX = event.getRawX();
         if (dl.updateStatus() != MyDragLayout.Status.Close) {
             if (event.getAction() == MotionEvent.ACTION_UP) {
                 dl.close();
