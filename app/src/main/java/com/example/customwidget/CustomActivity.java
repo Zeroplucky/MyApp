@@ -1,19 +1,16 @@
 package com.example.customwidget;
 
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.view.PagerAdapter;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.base.BaseActivity;
 import com.example.base.R;
-import com.example.customwidget.widget.MyDragLayout;
-import com.example.customwidget.widget.MyDragLinearLayout;
-import com.example.tencentqq.domain.Cheeses;
-
-import java.util.Arrays;
-import java.util.List;
+import com.example.customwidget.widget.Custom01View;
 
 import butterknife.BindView;
 
@@ -21,12 +18,8 @@ public class CustomActivity extends BaseActivity {
 
 
     public static final String TAG = "CustomActivity";
-    @BindView(R.id.listView)
-    RecyclerView listView;
-    @BindView(R.id.myDragLinearLayout)
-    MyDragLinearLayout myDragLinearLayout;
     @BindView(R.id.myDragLayout)
-    MyDragLayout myDragLayout;
+    Custom01View myDragLayout;
 
 
     @Override
@@ -37,25 +30,50 @@ public class CustomActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        myDragLinearLayout.setDragLayout(myDragLayout);
-        listView.setLayoutManager(new LinearLayoutManager(this));
 
-        listView.setAdapter(new MyAdapter(null));
+//        myDragLayout.setAdapter(new PageAdaper(this));
 
+        TextView textView = new TextView(this);
+        textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
+        textView.setText("xxxxxxxxxxx");
+        textView.setTextColor(Color.RED);
+
+        addContentView(textView, new ViewGroup.LayoutParams(-1, -1));
     }
 
+    class PageAdaper extends PagerAdapter {
 
-    class MyAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
+        private Context context;
 
-        public MyAdapter(@Nullable List data) {
-            super(R.layout.activity_custom_item, Arrays.asList(Cheeses.NAMES));
+        public PageAdaper(Context context) {
+            this.context = context;
         }
 
         @Override
-        protected void convert(BaseViewHolder helper, String item) {
-            helper.setText(R.id.item_tv, item + "");
+        public int getCount() {
+            return 10;
         }
 
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            TextView textView = new TextView(context);
+            textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
+            textView.setText("xxxxxxxxxxx");
+            textView.setTextColor(Color.RED);
+            return textView;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+
+        }
     }
 
 

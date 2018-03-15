@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Scroller;
 
 /**
- * Created by ZhangPeng on 2018/3/14.
+ * Created by  on 2018/3/14.
  */
 
 
@@ -111,7 +111,9 @@ public class HorizontalScrollViewEx extends ViewGroup {
             case MotionEvent.ACTION_MOVE: {
                 int deltaX = x - mLastX;
                 int deltaY = y - mLastY;
-                scrollBy(-deltaX, 0);
+                if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                    scrollBy(-deltaX, 0);
+                }
                 break;
             }
             case MotionEvent.ACTION_UP: {
@@ -144,6 +146,7 @@ public class HorizontalScrollViewEx extends ViewGroup {
         int measuredWidth = 0;
         int measuredHeight = 0;
         final int childCount = getChildCount();
+        Log.e(TAG, "onMeasure: " + widthMeasureSpec + "     " + heightMeasureSpec);
         measureChildren(widthMeasureSpec, heightMeasureSpec);
 
         int widthSpaceSize = MeasureSpec.getSize(widthMeasureSpec);
@@ -156,16 +159,21 @@ public class HorizontalScrollViewEx extends ViewGroup {
             final View childView = getChildAt(0);
             measuredWidth = childView.getMeasuredWidth() * childCount;
             measuredHeight = childView.getMeasuredHeight();
+            Log.e(TAG, "onMeasure: ----1----" + childView.getMeasuredWidth());
             setMeasuredDimension(measuredWidth, measuredHeight);
         } else if (heightSpecMode == MeasureSpec.AT_MOST) {
             final View childView = getChildAt(0);
             measuredHeight = childView.getMeasuredHeight();
+            Log.e(TAG, "onMeasure: ----2----" + childView.getMeasuredWidth());
             setMeasuredDimension(widthSpaceSize, childView.getMeasuredHeight());
         } else if (widthSpecMode == MeasureSpec.AT_MOST) {
             final View childView = getChildAt(0);
             measuredWidth = childView.getMeasuredWidth() * childCount;
+            Log.e(TAG, "onMeasure: ---3-----" + getChildAt(0).getMeasuredWidth());
             setMeasuredDimension(measuredWidth, heightSpaceSize);
         }
+        Log.e(TAG, "onMeasure: " + getChildAt(0).getMeasuredWidth() + "     " + measuredHeight);
+        Log.e(TAG, "onMeasure: ---------------------------------------------------");
     }
 
     @Override

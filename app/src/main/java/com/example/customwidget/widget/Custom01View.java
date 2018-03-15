@@ -1,15 +1,20 @@
 package com.example.customwidget.widget;
 
 import android.content.Context;
-import android.graphics.Canvas;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * Created by Administrator on 2018/1/26.
  */
 
-public class Custom01View extends View {
+public class Custom01View extends ViewPager {
 
 
     public Custom01View(Context context) {
@@ -20,30 +25,15 @@ public class Custom01View extends View {
         super(context, attrs);
     }
 
-    public Custom01View(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
 
     @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-
-//        canvas.drawRoundRect();
+    protected void onPageScrolled(int position, float offset, int offsetPixels) {
+        super.onPageScrolled(position, offset, offsetPixels);
+        Log.e("Custom01View", "onPageScrolled: " + position);
     }
 
-    @Override
-    public void setBackgroundColor(int color) {
-        super.setBackgroundColor(color);
-    }
 
-    @Override
-    public void setAlpha(float alpha) {
-        super.setAlpha(alpha);
-    }
 
-    @Override
-    public void setTranslationX(float translationX) {
-        super.setTranslationX(translationX);
-    }
+
 
 }
