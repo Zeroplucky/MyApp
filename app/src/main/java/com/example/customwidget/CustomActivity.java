@@ -31,7 +31,7 @@ public class CustomActivity extends BaseActivity {
     @Override
     protected void initView() {
 
-//        myDragLayout.setAdapter(new PageAdaper(this));
+//        myDragLayout.setAdapter(new PageAdaper(this));  terminate
 
         TextView textView = new TextView(this);
         textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
