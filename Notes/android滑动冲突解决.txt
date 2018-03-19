@@ -1,0 +1,48 @@
+
+
+https://www.jianshu.com/p/d2e17c360819
+
+外部拦截法
+
+// MyViewGroup
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                return false;
+            case MotionEvent.ACTION_MOVE:
+                return intercept();
+                break;
+            case MotionEvent.ACTION_UP:
+                return false;
+        }
+        return super.onInterceptTouchEvent(ev);
+    }
+
+内部拦截法
+
+// MyViewGroup
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN)
+            return false;
+        else return true;
+    }
+
+
+    // MyView
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                getParent().requestDisallowInterceptTouchEvent(true);
+                return true;
+            case MotionEvent.ACTION_MOVE:
+                if (!intercept())
+                    getParent().requestDisallowInterceptTouchEvent(false);
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+        return super.onTouchEvent(event);
+    }
