@@ -47,7 +47,7 @@ public class GangAdapter extends BaseQuickAdapter<String, GangAdapter.ViewHolder
 
     class ViewHolder extends BaseViewHolder {
 
-        @BindView(R.id.item_tv)
+        @BindView(R.id.textName)
         TextView tvName;
 
         public ViewHolder(View view) {
