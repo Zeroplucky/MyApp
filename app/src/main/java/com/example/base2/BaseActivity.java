@@ -2,16 +2,16 @@ package com.example.base2;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import me.yokeyword.fragmentation.SupportActivity;
 
 /**
  * Created by zp on 2018/2/28.
  */
 
-public abstract class BaseActivity<V, P extends BasePresenter<V>> extends AppCompatActivity {
+public abstract class BaseActivity<V, P extends BasePresenter<V>> extends SupportActivity {
 
     public P mPresenter;
     private Unbinder unbinder;

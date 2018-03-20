@@ -14,7 +14,7 @@
         android:visibility="gone" />
 
     <TextView
-        android:id="@+id/toor_bar"
+        android:id="@+id/titleName"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"

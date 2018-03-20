@@ -64,7 +64,7 @@ public class ChatActivity extends BaseActivity implements IChatView {
     LinearLayout llRootEmojiPanel;
     @BindView(R.id.img_back)
     ImageButton imgBack;
-    @BindView(R.id.toor_bar)
+    @BindView(R.id.titleName)
     TextView toorBar;
     @BindView(R.id.emotion_send)
     StateButton emotionSend;

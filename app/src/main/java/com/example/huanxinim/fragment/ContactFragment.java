@@ -29,7 +29,7 @@ import butterknife.BindView;
 public class ContactFragment extends BaseFragment implements IContactView {
 
 
-    @BindView(R.id.toor_bar)
+    @BindView(R.id.titleName)
     TextView toorBar;
     @BindView(R.id.recycler_view)
     CustomRefreshView mRecyclerView;

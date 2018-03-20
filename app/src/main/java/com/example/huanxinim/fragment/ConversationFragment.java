@@ -27,7 +27,7 @@ public class ConversationFragment extends BaseFragment implements IConversationV
 
     @BindView(R.id.img_back)
     ImageButton imgBack;
-    @BindView(R.id.toor_bar)
+    @BindView(R.id.titleName)
     TextView toorBar;
     private IConversationPresenter mConversationPresenter;
     private ConversationAdapter mConversationAdapter;

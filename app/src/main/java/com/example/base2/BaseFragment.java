@@ -2,16 +2,16 @@ package com.example.base2;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import me.yokeyword.fragmentation.SupportFragment;
 
 
-public abstract class BaseFragment<V, P extends BasePresenter<V>> extends Fragment {
+public abstract class BaseFragment<V, P extends BasePresenter<V>> extends SupportFragment {
 
     public P mPresenter;
     private Unbinder unbinder;

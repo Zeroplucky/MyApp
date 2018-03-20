@@ -18,7 +18,7 @@ import com.example.base.R;
 import com.example.coordinators.CoordinatorActivity;
 import com.example.customwidget.CustomActivity;
 import com.example.huanxinim.LoginActivity;
-import com.example.okgo_http.Demo1Activity;
+import com.example.okgo_http.GangedActivity;
 import com.example.superfileview.SuperFileViewActivity;
 import com.example.tencentqq.QQActivity;
 import com.example.video.VideoActivity;
@@ -72,7 +72,7 @@ public class MainActivity extends BaseActivity {
                 Intent intent = null;
                 switch (position) {
                     case 0:
-                        intent = new Intent(mContext, Demo1Activity.class);
+                        intent = new Intent(mContext, GangedActivity.class);
                         break;
                     case 1:
                         intent = new Intent(mContext, VideoActivity.class);

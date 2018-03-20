@@ -38,7 +38,7 @@ public class Demo1Activity extends BaseMvpAppCompatActivity<IDemo1View, Demo1Pre
     TextView filePath;
     @BindView(R.id.text_requst)
     Button textRequst;
-    @BindView(R.id.toor_bar)
+    @BindView(R.id.titleName)
     TextView toorBar;
     @BindView(R.id.tao_header)
     TaoHeadline taoHeader;
