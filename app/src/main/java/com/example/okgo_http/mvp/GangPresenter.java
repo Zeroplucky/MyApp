@@ -54,11 +54,11 @@ public class GangPresenter extends BasePresenter<GangView> {
                 for (int i = 0; i < categoryOneArray.size(); i++) {
                     name = categoryOneArray.get(i).getName();
                     listName.add(name);
-                    rightBeanList.add(new GangRightBean(name, 1));
+                    rightBeanList.add(new GangRightBean(name, name, String.valueOf(i), 1, true));
                     List<GangBean.CategoryOneArrayBean.CategoryTwoArrayBean> categoryTwoArray = categoryOneArray.get(i).getCategoryTwoArray();
                     for (int j = 0; j < categoryTwoArray.size(); j++) {
                         nameRight = categoryTwoArray.get(j).getName();
-                        rightBeanList.add(new GangRightBean(nameRight, 2));
+                        rightBeanList.add(new GangRightBean(name, nameRight, String.valueOf(i), 2, false));
                     }
                 }
                 view.getData(listName);

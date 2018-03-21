@@ -16,7 +16,7 @@
         android:background="#0068cf" />
 
     <TextView
-        android:id="@+id/header_view"
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center"
