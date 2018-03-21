@@ -7,10 +7,11 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.base.R;
 import com.example.base2.BaseFragment;
 import com.example.base2.BasePresenter;
-import com.example.okgo_http.adapter.GangNewAdapter;
+import com.example.okgo_http.adapter.GangRightAdapter;
 import com.example.okgo_http.adapter.ItemHeaderDecoration;
 import com.example.okgo_http.bean.GangRightBean;
 
@@ -25,7 +26,7 @@ public class GangFragment extends BaseFragment {
     RecyclerView recyclerView;
     private ArrayList<GangRightBean> rightLists;
     private GridLayoutManager mManager;
-    private GangNewAdapter adapter;
+    private GangRightAdapter adapter;
 
     public static GangFragment newInstance(ArrayList<GangRightBean> rightBeanList) {
         Bundle args = new Bundle();
@@ -58,18 +59,25 @@ public class GangFragment extends BaseFragment {
     protected void initView(View view) {
         super.initView(view);
         mManager = new GridLayoutManager(getContext(), 3);
-        //通过isTitle的标志来判断是否是title
-        mManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-                return rightLists.get(position).isTitle() ? 3 : 1;
-            }
-        });
+//        //通过isTitle的标志来判断是否是title
+//        mManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+//            @Override
+//            public int getSpanSize(int position) {
+//                return rightLists.get(position).isTitle() ? 3 : 1;
+//            }
+//        });
         recyclerView.setLayoutManager(mManager);
-        adapter = new GangNewAdapter(rightLists, getContext());
+        adapter = new GangRightAdapter(rightLists);
         recyclerView.setAdapter(adapter);
         ItemHeaderDecoration mDecoration = new ItemHeaderDecoration(getContext(), rightLists);
         recyclerView.addItemDecoration(mDecoration);
+
+        adapter.setSpanSizeLookup(new BaseQuickAdapter.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(GridLayoutManager gridLayoutManager, int position) {
+                return rightLists.get(position).isTitle() ? 3 : 1;
+            }
+        });
     }
 
     @Override

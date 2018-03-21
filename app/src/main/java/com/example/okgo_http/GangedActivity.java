@@ -2,6 +2,7 @@ package com.example.okgo_http;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -19,7 +20,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class GangedActivity extends BaseActivity<GangView, GangPresenter> implements GangView {
+public class GangedActivity extends BaseActivity<GangView, GangPresenter> implements GangView, BaseQuickAdapter.RequestLoadMoreListener {
 
 
     @BindView(R.id.recyclerView)
@@ -52,6 +53,7 @@ public class GangedActivity extends BaseActivity<GangView, GangPresenter> implem
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+        adapter.setOnLoadMoreListener(this, recyclerView);
         getPresenter().getData("sort.json");
         setListener();
     }
@@ -80,6 +82,7 @@ public class GangedActivity extends BaseActivity<GangView, GangPresenter> implem
     @Override
     public void getData(List<String> listName) {
         adapter.setNewData(listName);
+        Log.e("xxx", "getData: " + adapter.getItemCount());
     }
 
     @Override
@@ -101,4 +104,8 @@ public class GangedActivity extends BaseActivity<GangView, GangPresenter> implem
 
     }
 
+    @Override
+    public void onLoadMoreRequested() {
+        Log.e("xxx", "getData: " + adapter.getItemCount());
+    }
 }
