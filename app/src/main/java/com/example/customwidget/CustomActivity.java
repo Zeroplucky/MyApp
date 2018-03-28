@@ -30,7 +30,14 @@ public class CustomActivity extends BaseActivity {
         mViewPager.setOffscreenPageLimit(2);//设置预加载的数量，这里设置了2,会预加载中心item左边两个Item和右边两个Item
         mViewPager.setPageMargin(10);//设置两个Page之间的距离
 
+
+
     }
+
+
+
+
+
 
 
 }
