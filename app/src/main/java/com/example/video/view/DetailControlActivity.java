@@ -133,11 +133,11 @@ public class DetailControlActivity extends GSYBaseActivityDetail {
 
     private void loadCover(ImageView imageView, String url) {
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        imageView.setImageResource(R.mipmap.xxx2);
+        imageView.setImageResource(R.mipmap.ic_launcher);
         Glide.with(this.getApplicationContext())
                 .load(url)
-                .error(R.mipmap.xxx2)
-                .placeholder(R.mipmap.xxx2)
+                .error(R.mipmap.ic_launcher)
+                .placeholder(R.mipmap.ic_launcher)
                 .into(imageView);
     }
 

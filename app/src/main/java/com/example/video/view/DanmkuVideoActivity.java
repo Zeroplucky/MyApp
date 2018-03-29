@@ -44,7 +44,7 @@ public class DanmkuVideoActivity extends AppCompatActivity {
         //增加封面
         ImageView imageView = new ImageView(this);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        imageView.setImageResource(R.mipmap.xxx2);
+        imageView.setImageResource(R.mipmap.ic_launcher);
         danmakuVideoPlayer.setThumbImageView(imageView);
 
         resolveNormalVideoUI();
