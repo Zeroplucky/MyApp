@@ -8,6 +8,8 @@ import android.widget.FrameLayout;
 
 /**
  * 锯齿背景虚线边框
+ * <p>
+ * 原作者地址： https://github.com/dongjunkun/CouponView
  */
 public class CouponView extends FrameLayout {
 
