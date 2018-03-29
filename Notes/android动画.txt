@@ -14,3 +14,10 @@ Android 动画坐标百分比    https://www.jianshu.com/p/436194a5669c
 2.ViewAnimationUtils
 http://blog.csdn.net/qq_33451004/article/details/53785666
 
+
+https://www.jianshu.com/p/420629118c10
+pivotX取值	含义
+10	距离动画所在view自身左边缘10像素
+10%	距离动画所在view自身左边缘 的距离是整个view宽度的10%
+10%p	距离动画所在view父控件左边缘的距离是整个view宽度的10%
+
