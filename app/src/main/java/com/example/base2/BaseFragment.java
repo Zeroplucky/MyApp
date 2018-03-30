@@ -1,6 +1,7 @@
 package com.example.base2;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,10 +16,12 @@ public abstract class BaseFragment<V, P extends BasePresenter<V>> extends Suppor
 
     public P mPresenter;
     private Unbinder unbinder;
+    public Context mContext;
 
     @Override
     public View onCreateView(LayoutInflater mInflater, ViewGroup container, Bundle savedInstanceState) {
         View mView = null;
+        mContext = getContext();
         if (mView == null && setContentViewId() > 0) {
             mView = mInflater.inflate(setContentViewId(), container, false);
             mPresenter = creatPresenter();

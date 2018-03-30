@@ -20,7 +20,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class GangedActivity extends BaseActivity<GangView, GangPresenter> implements GangView, BaseQuickAdapter.RequestLoadMoreListener {
+public class GangedActivity extends BaseActivity<GangView, GangPresenter> implements GangView {
 
 
     @BindView(R.id.recyclerView)
@@ -53,7 +53,6 @@ public class GangedActivity extends BaseActivity<GangView, GangPresenter> implem
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
-        adapter.setOnLoadMoreListener(this, recyclerView);
         getPresenter().getData("sort.json");
         setListener();
     }
@@ -104,8 +103,4 @@ public class GangedActivity extends BaseActivity<GangView, GangPresenter> implem
 
     }
 
-    @Override
-    public void onLoadMoreRequested() {
-        Log.e("xxx", "getData: " + adapter.getItemCount());
-    }
 }

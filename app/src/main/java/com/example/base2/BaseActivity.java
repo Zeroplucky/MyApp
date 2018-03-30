@@ -1,5 +1,6 @@
 package com.example.base2;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -7,14 +8,12 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportActivity;
 
-/**
- * Created by zp on 2018/2/28.
- */
 
 public abstract class BaseActivity<V, P extends BasePresenter<V>> extends SupportActivity {
 
     public P mPresenter;
     private Unbinder unbinder;
+    public Context mContext;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,6 +22,7 @@ public abstract class BaseActivity<V, P extends BasePresenter<V>> extends Suppor
         if (setContentViewId() != 0) {
             setContentView(setContentViewId());
         }
+        mContext = this;
         mPresenter = creatPresenter();
         if (mPresenter != null) {
             mPresenter.attachView((V) this);

@@ -43,6 +43,10 @@ import java.util.List;
 
 import butterknife.BindView;
 
+/*
+*聚合 聊天自动回复
+* http://op.juhe.cn/robot/index?key=98b8f13ededd2f7e1d593819a6bb3639&info=%E6%88%91%E6%98%AF%E8%B0%81
+* */
 public class ChatActivity extends BaseActivity implements IChatView {
 
 

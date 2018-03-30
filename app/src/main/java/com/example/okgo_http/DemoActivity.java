@@ -31,7 +31,7 @@ import io.reactivex.functions.Consumer;
 
 
 @CreatePresenter(Demo1Presenter.class)
-public class Demo1Activity extends BaseMvpAppCompatActivity<IDemo1View, Demo1Presenter> implements IDemo1View {
+public class DemoActivity extends BaseMvpAppCompatActivity<IDemo1View, Demo1Presenter> implements IDemo1View {
 
 
     @BindView(R.id.file_path)
@@ -47,12 +47,33 @@ public class Demo1Activity extends BaseMvpAppCompatActivity<IDemo1View, Demo1Pre
 
     @Override
     protected int getContentViewId() {
-        return R.layout.activity_demo1;
+        return R.layout.activity_demo;
     }
 
     @Override
     protected void initView() {
         super.initView();
+        requstPermission();
+        taoHeader();
+    }
+
+    private void taoHeader() {
+        List<HeadlineBean> data = new ArrayList<>();
+        data.add(new HeadlineBean("热门", "袜子裤子只要998"));
+        data.add(new HeadlineBean("推荐", "韩流服饰，一折起"));
+        data.add(new HeadlineBean("好货", "品牌二手车"));
+        data.add(new HeadlineBean("省钱", "游戏鼠标键盘套装"));
+        taoHeader.setData(data);
+
+        taoHeader.setHeadlineClickListener(new TaoHeadline.HeadlineClickListener() {
+            @Override
+            public void onHeadlineClick(HeadlineBean bean) {
+                Toast.makeText(mContext, "" + bean.getTitle(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void requstPermission() {
         //rxpermissions1 的用法。
 //        RxPermissions rxPermissions = new RxPermissions(this);
 //        RxView.clicks(findViewById(R.id.file_path))
@@ -80,21 +101,6 @@ public class Demo1Activity extends BaseMvpAppCompatActivity<IDemo1View, Demo1Pre
                         }
                     }
                 });
-
-        //
-        List<HeadlineBean> data = new ArrayList<>();
-        data.add(new HeadlineBean("热门", "袜子裤子只要998"));
-        data.add(new HeadlineBean("推荐", "韩流服饰，一折起"));
-        data.add(new HeadlineBean("好货", "品牌二手车"));
-        data.add(new HeadlineBean("省钱", "游戏鼠标键盘套装"));
-        taoHeader.setData(data);
-
-        taoHeader.setHeadlineClickListener(new TaoHeadline.HeadlineClickListener() {
-            @Override
-            public void onHeadlineClick(HeadlineBean bean) {
-                Toast.makeText(mContext, "" + bean.getTitle(), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override
@@ -114,10 +120,11 @@ public class Demo1Activity extends BaseMvpAppCompatActivity<IDemo1View, Demo1Pre
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.text_requst:
-                startActivity(new Intent(mContext, Demo2Activity.class));
+                startActivity(new Intent(mContext, GangedActivity.class));
                 break;
             case R.id.file_path:
-                getMvpPresenter().downLoadFile(mContext);
+//                getMvpPresenter().downLoadFile(mContext);
+                startActivity(new Intent(mContext, DownActivity.class));
                 break;
         }
     }
