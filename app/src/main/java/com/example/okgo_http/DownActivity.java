@@ -1,11 +1,12 @@
 package com.example.okgo_http;
 
+import android.os.Handler;
+import android.os.Message;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -14,17 +15,19 @@ import com.example.base.R;
 import com.example.base2.BaseActivity;
 import com.example.okgo_http.bean.DownBean;
 import com.example.okgo_http.mvp.DownController;
+import com.example.utils.AnimationUtils;
+import com.example.widget.ProgressView;
+import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class DownActivity extends BaseActivity<DownController.DownView, DownController.DownPresenter> implements DownController.DownView {
 
     @BindView(R.id.titleName)
     TextView titleName;
-    @BindView(R.id.progressBar)
-    ProgressBar progressBar;
     @BindView(R.id.imageview01)
     ImageView imageview01;
     @BindView(R.id.textview02)
@@ -39,7 +42,12 @@ public class DownActivity extends BaseActivity<DownController.DownView, DownCont
     TextView textview06;
     @BindView(R.id.layoutDown07)
     LinearLayout layoutDown07;
+    @BindView(R.id.upOrDown)
+    AutoLinearLayout upOrDown;
+    @BindView(R.id.progressBar)
+    ProgressView progressBar;
     private DownBean bean;
+    private String downUrl;
 
     @Override
     protected int setContentViewId() {
@@ -67,6 +75,7 @@ public class DownActivity extends BaseActivity<DownController.DownView, DownCont
     @Override
     public void getData(DownBean bean, String url) {
         this.bean = bean;
+        this.downUrl = url;
         if (bean != null) {
             Glide.with(mContext).load(bean.getIcoUri()).into(imageview01);
             textview02.setText(bean.getName() + "");
@@ -92,6 +101,9 @@ public class DownActivity extends BaseActivity<DownController.DownView, DownCont
             mDescTextview02.setText(safeLabels.get(i).getName());
             layoutDown07.addView(view);
         }
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) layoutDown07.getLayoutParams();
+        layoutParams.leftMargin = 10;
+        layoutParams.rightMargin = 10;
     }
 
     @Override
@@ -114,5 +126,32 @@ public class DownActivity extends BaseActivity<DownController.DownView, DownCont
             linearlayout05.addView(textView);
         }
     }
+
+
+    @OnClick({R.id.layout, R.id.upOrDown})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.upOrDown:
+                AnimationUtils.switcher(layoutDown07);
+                handler.sendEmptyMessage(0);
+                break;
+        }
+    }
+
+
+    private int p = 0;
+
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (p <= 100) {
+                sendEmptyMessageDelayed(0, 500);
+            }
+            p++;
+            progressBar.setProgress(p);
+        }
+    };
+
 
 }
