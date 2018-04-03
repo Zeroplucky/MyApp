@@ -19,7 +19,7 @@ public class AnimationUtils {
             originHeight = height;
         }
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(originHeight, 0f);
-        valueAnimator.setDuration(100);
+        valueAnimator.setDuration(200);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {

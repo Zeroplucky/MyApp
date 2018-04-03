@@ -14,11 +14,16 @@ import com.bumptech.glide.Glide;
 import com.example.base.R;
 import com.example.base2.BaseActivity;
 import com.example.okgo_http.bean.DownBean;
+import com.example.okgo_http.db.DownInfoDao;
+import com.example.okgo_http.db.entity.DownInfo;
+import com.example.okgo_http.db.utils.DBUtils;
 import com.example.okgo_http.mvp.DownController;
 import com.example.utils.AnimationUtils;
+import com.example.utils.FileUtil;
 import com.example.widget.ProgressView;
 import com.zhy.autolayout.AutoLinearLayout;
 
+import java.io.File;
 import java.util.List;
 
 import butterknife.BindView;
@@ -48,6 +53,7 @@ public class DownActivity extends BaseActivity<DownController.DownView, DownCont
     ProgressView progressBar;
     private DownBean bean;
     private String downUrl;
+    private File outFile;//下载文件存储的位置
 
     @Override
     protected int setContentViewId() {
@@ -67,6 +73,7 @@ public class DownActivity extends BaseActivity<DownController.DownView, DownCont
         if (fragment == null) {
             loadRootFragment(R.id.content, DownFragment.newInstance());
         }
+
         getPresenter().getData();
 
     }
@@ -83,8 +90,17 @@ public class DownActivity extends BaseActivity<DownController.DownView, DownCont
             ratingbar04.setNumStars(bean.getStars());
             setlabelNames();
             setSafeLabel();
+            downApk(url);
         }
 
+    }
+
+    private void downApk(String url) {
+        DownInfoDao dao = DBUtils.getDownInfoDao();
+        DownInfo unique = dao.queryBuilder().where(DownInfoDao.Properties.Url.eq(url)).unique();
+        if (unique == null) {
+            outFile = FileUtil.createCacheFile(mContext, url + "apk");
+        }
     }
 
     private void setSafeLabel() {
@@ -145,11 +161,11 @@ public class DownActivity extends BaseActivity<DownController.DownView, DownCont
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
+            p++;
             if (p <= 100) {
                 sendEmptyMessageDelayed(0, 500);
+                progressBar.setProgress(p);
             }
-            p++;
-            progressBar.setProgress(p);
         }
     };
 
