@@ -74,7 +74,7 @@ public class DownActivity extends BaseActivity<DownController.DownView, DownCont
             loadRootFragment(R.id.content, DownFragment.newInstance());
         }
 
-        getPresenter().getData();
+        getPresenter().getData(); //fetch revert
 
     }
 
