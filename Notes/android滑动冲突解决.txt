@@ -46,3 +46,34 @@ https://www.jianshu.com/p/d2e17c360819
         }
         return super.onTouchEvent(event);
     }
+
+  https://www.jianshu.com/p/ea0108d8510e
+/**
+  * 点击事件产生后
+  */
+  // 步骤1：调用dispatchTouchEvent（）
+  public boolean dispatchTouchEvent(MotionEvent ev) {
+
+    boolean consume = false; //代表 是否会消费事件
+
+    // 步骤2：判断是否拦截事件
+    if (onInterceptTouchEvent(ev)) {
+      // a. 若拦截，则将该事件交给当前View进行处理
+      // 即调用onTouchEvent (）方法去处理点击事件
+        consume = onTouchEvent (ev) ;
+
+    } else {
+
+      // b. 若不拦截，则将该事件传递到下层
+      // 即 下层元素的dispatchTouchEvent（）就会被调用，重复上述过程
+      // 直到点击事件被最终处理为止
+      consume = child.dispatchTouchEvent (ev) ;
+    }
+
+    // 步骤3：最终返回通知 该事件是否被消费（接收 & 处理）
+    return consume;
+
+作者：g小志
+链接：https://www.jianshu.com/p/ea0108d8510e
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

@@ -25,6 +25,7 @@ android {
             abiFilters "armeabi", "armeabi-v7a", "x86"
         }
     }
+
     //
     signingConfigs {
         config {
