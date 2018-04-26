@@ -10,6 +10,7 @@ import android.view.MotionEvent;
  */
 
 public class NoScrollViewPager extends ViewPager {
+    private boolean isScrollable = false;
 
     public NoScrollViewPager(Context context) {
         super(context);
@@ -21,11 +22,17 @@ public class NoScrollViewPager extends ViewPager {
 
     @Override
     public boolean onTouchEvent(MotionEvent arg0) {
+        if (isScrollable) {
+            return super.onTouchEvent(arg0);
+        }
         return false;
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent arg0) {
+        if (isScrollable) {
+            return super.onInterceptTouchEvent(arg0);
+        }
         return false;
     }
 }
