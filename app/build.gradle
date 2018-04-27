@@ -25,7 +25,10 @@ android {
             abiFilters "armeabi", "armeabi-v7a", "x86"
         }
     }
-
+    //执行lint检查，有任何的错误或者警告提示，都会终止构建，我们可以将其关掉。
+//    lintOptions {
+//        abortOnError false
+//    }
     //
     signingConfigs {
         config {
