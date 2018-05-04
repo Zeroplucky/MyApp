@@ -12,6 +12,7 @@ import android.widget.Scroller;
 
 /**
  * Created by Administrator on 2018/4/27.
+ * 作者： https://github.com/fornana/swipeitemlayout
  */
 
 public class SwipeItemLayout extends ViewGroup {

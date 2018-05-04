@@ -7,7 +7,7 @@ import android.util.Log;
  * Created by Administrator on 2017/12/28.
  */
 
-public class LogUtils {
+public class Logger {
 
     static final String LOG_TAG = "xxx";
 

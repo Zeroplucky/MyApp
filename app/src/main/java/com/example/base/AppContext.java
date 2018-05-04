@@ -4,6 +4,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
 
+import com.example.BaseApp;
 import com.github.moduth.blockcanary.BlockCanaryContext;
 
 import java.util.List;

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 import com.example.base.R;
 import com.example.superfileview.widget.SuperFileView2;
-import com.example.utils.LogUtils;
+import com.example.utils.Logger;
 import com.example.utils.Md5Tool;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.FileCallback;
@@ -45,7 +45,7 @@ public class FileDisplayActivity extends AppCompatActivity {
         String path = (String) intent.getSerializableExtra("path");
 
         if (!TextUtils.isEmpty(path)) {
-            LogUtils.d(TAG, "文件path:" + path);
+            Logger.d(TAG, "文件path:" + path);
             setFilePath(path);
         }
         mSuperFileView.show();
@@ -74,7 +74,7 @@ public class FileDisplayActivity extends AppCompatActivity {
         File cacheFile = getCacheFile(url);
         if (cacheFile.exists()) {
             if (cacheFile.length() <= 0) {
-                LogUtils.d(TAG, "删除空文件！！");
+                Logger.d(TAG, "删除空文件！！");
                 cacheFile.delete();
                 return;
             }
@@ -109,7 +109,7 @@ public class FileDisplayActivity extends AppCompatActivity {
     private File getCacheFile(String url) {
         File cacheFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/007/"
                 + getFileName(url));
-        LogUtils.d(TAG, "缓存文件 = " + cacheFile.toString());
+        Logger.d(TAG, "缓存文件 = " + cacheFile.toString());
         return cacheFile;
     }
 
@@ -127,17 +127,17 @@ public class FileDisplayActivity extends AppCompatActivity {
     private String getFileType(String paramString) {
         String str = "";
         if (TextUtils.isEmpty(paramString)) {
-            LogUtils.d(TAG, "paramString---->null");
+            Logger.d(TAG, "paramString---->null");
             return str;
         }
-        LogUtils.d(TAG, "paramString:" + paramString);
+        Logger.d(TAG, "paramString:" + paramString);
         int i = paramString.lastIndexOf('.');
         if (i <= -1) {
-            LogUtils.d(TAG, "i <= -1");
+            Logger.d(TAG, "i <= -1");
             return str;
         }
         str = paramString.substring(i + 1);
-        LogUtils.d(TAG, "paramString.substring(i + 1)------>" + str);
+        Logger.d(TAG, "paramString.substring(i + 1)------>" + str);
         return str;
     }
 
@@ -152,7 +152,7 @@ public class FileDisplayActivity extends AppCompatActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LogUtils.d("FileDisplayActivity-->onDestroy");
+        Logger.d("FileDisplayActivity-->onDestroy");
         if (mSuperFileView != null) {
             mSuperFileView.onStopDisplay();
         }

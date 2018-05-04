@@ -1,4 +1,4 @@
-package com.example.base;
+package com.example;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -8,8 +8,9 @@ import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 import android.view.WindowManager;
 
+import com.example.base.BuildConfig;
 import com.example.okgo_http.db.utils.DBUtils;
-import com.example.utils.LogUtils;
+import com.example.utils.Logger;
 import com.example.utils.NetworkUtils;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
@@ -39,7 +40,6 @@ public class BaseApp extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        MultiDex.install(this);
         mAppContext = this;
 //        BlockCanary.install(this, new AppContext()).start();
 //        refWatcher = setupLeakCanary();
@@ -50,7 +50,7 @@ public class BaseApp extends MultiDexApplication {
 
 
         NetworkUtils.init(this);
-        LogUtils.enable();
+        Logger.enable();
 
         initDb();
     }

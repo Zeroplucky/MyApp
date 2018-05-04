@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.example.utils.LogUtils;
+import com.example.utils.Logger;
 import com.tencent.smtt.sdk.TbsReaderView;
 
 import java.io.File;
@@ -60,16 +60,16 @@ public class SuperFileView2 extends FrameLayout implements TbsReaderView.ReaderC
             File bsReaderTempFile = new File(bsReaderTemp);
 
             if (!bsReaderTempFile.exists()) {
-                LogUtils.e("准备创建/storage/emulated/0/TbsReaderTemp！！");
+                Logger.e("准备创建/storage/emulated/0/TbsReaderTemp！！");
                 boolean mkdir = bsReaderTempFile.mkdir();
                 if (!mkdir) {
-                    LogUtils.e("创建/storage/emulated/0/TbsReaderTemp失败！！！！！");
+                    Logger.e("创建/storage/emulated/0/TbsReaderTemp失败！！！！！");
                 }
             }
 
             //加载文件
             Bundle localBundle = new Bundle();
-            LogUtils.e(mFile.toString());
+            Logger.e(mFile.toString());
             localBundle.putString("filePath", mFile.toString());
             localBundle.putString("tempPath", Environment.getExternalStorageDirectory() + "/" + "TbsReaderTemp");
             if (this.mTbsReaderView == null)
@@ -79,7 +79,7 @@ public class SuperFileView2 extends FrameLayout implements TbsReaderView.ReaderC
                 this.mTbsReaderView.openFile(localBundle);
             }
         } else {
-            LogUtils.e("文件路径无效！");
+            Logger.e("文件路径无效！");
         }
 
     }
@@ -94,19 +94,19 @@ public class SuperFileView2 extends FrameLayout implements TbsReaderView.ReaderC
         String str = "";
 
         if (TextUtils.isEmpty(paramString)) {
-            LogUtils.e(TAG, "paramString---->null");
+            Logger.e(TAG, "paramString---->null");
             return str;
         }
-        LogUtils.e(TAG, "paramString:" + paramString);
+        Logger.e(TAG, "paramString:" + paramString);
         int i = paramString.lastIndexOf('.');
         if (i <= -1) {
-            LogUtils.e(TAG, "i <= -1");
+            Logger.e(TAG, "i <= -1");
             return str;
         }
 
 
         str = paramString.substring(i + 1);
-        LogUtils.e(TAG, "paramString.substring(i + 1)------>" + str);
+        Logger.e(TAG, "paramString.substring(i + 1)------>" + str);
         return str;
     }
 
@@ -126,7 +126,7 @@ public class SuperFileView2 extends FrameLayout implements TbsReaderView.ReaderC
 
     @Override
     public void onCallBackAction(Integer integer, Object o, Object o1) {
-        LogUtils.e("xxx" + integer);
+        Logger.e("xxx" + integer);
     }
 
     public void onStopDisplay() {

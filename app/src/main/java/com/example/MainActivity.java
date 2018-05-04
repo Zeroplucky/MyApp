@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.base.BaseActivity;
-import com.example.base.BaseApp;
 import com.example.base.R;
 import com.example.coordinators.CoordinatorActivity;
 import com.example.customwidget.CustomActivity;
