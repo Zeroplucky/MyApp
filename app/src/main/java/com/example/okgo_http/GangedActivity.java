@@ -20,6 +20,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
+// 作者：https://github.com/wustor/GangedRecyclerview
 public class GangedActivity extends BaseActivity<GangView, GangPresenter> implements GangView {
 
 
@@ -58,12 +59,9 @@ public class GangedActivity extends BaseActivity<GangView, GangPresenter> implem
     }
 
     private void setListener() {
-        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapterBase, View view, int position) {
-                adapter.setCheckedPosition(position);
-                moveToCenter(position);
-            }
+        adapter.setOnItemClickListener((adapterBase, view, position) -> {
+            adapter.setCheckedPosition(position);
+            moveToCenter(position);
         });
     }
 
