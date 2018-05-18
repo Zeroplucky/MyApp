@@ -3,6 +3,7 @@
 
     <!--当属性重复使用是 写成全局使用-->
     <attr name="normalTextColor" format="color|reference" />
+    <attr name="textSize" format="dimension" />
 
     <declare-styleable name="LoadingView">
         <attr name="outerCircleRadius" format="dimension|reference" />
@@ -121,7 +122,7 @@
     </declare-styleable>
 
     <declare-styleable name="WheelView">
-        <attr name="textSize" format="dimension" />
+        <attr name="textSize" />
         <attr name="textVerticalSpacing" format="dimension" />
         <attr name="normalTextColor" />
         <attr name="selectedTextColor" format="color" />
@@ -147,6 +148,12 @@
             <flag name="end" value="0x00800005" />
         </attr>
         <attr name="selectPosition" format="integer" />
+    </declare-styleable>
+
+    <!--倒计时 控件-->
+    <declare-styleable name="CountDownView">
+        <attr name="textSize" />
+        <attr name="defaultTime" format="integer" />
     </declare-styleable>
 
 </resources>

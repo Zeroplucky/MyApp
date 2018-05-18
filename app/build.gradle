@@ -113,6 +113,9 @@ dependencies {
     compile project(':emotionlib')
     compile project(':tbslib')
     compile project(':gsyvideolib')
+    //https://github.com/BolexLiu/AutoEx
+    debugImplementation 'com.github.BolexLiu.AutoEx:AutoEx-Lib:v1.0.7' //debug包
+    releaseImplementation 'com.github.BolexLiu.AutoEx:AutoEx-Lib-No-Op:v1.0.7' //release包
 
 }
 

@@ -8,6 +8,7 @@ import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 import android.view.WindowManager;
 
+import com.bolex.autoEx.AutoEx;
 import com.example.base.BuildConfig;
 import com.example.okgo_http.db.utils.DBUtils;
 import com.example.utils.Logger;
@@ -39,6 +40,7 @@ public class BaseApp extends MultiDexApplication {
 
     @Override
     public void onCreate() {
+        AutoEx.apply();
         super.onCreate();
         mAppContext = this;
 //        BlockCanary.install(this, new AppContext()).start();
@@ -70,7 +72,7 @@ public class BaseApp extends MultiDexApplication {
 
             @Override
             public void onCoreInitFinished() {
-                // TODO Auto-generated method stub
+
             }
         };
         //x5内核初始化接口
