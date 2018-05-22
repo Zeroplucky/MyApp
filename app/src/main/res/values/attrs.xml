@@ -47,7 +47,8 @@
     </declare-styleable>
 
 
-    <declare-styleable name="ScrollingViewHeaderLayout">
+    <!--HeaderLayout-->
+    <declare-styleable name="HeaderLayout">
         <attr name="headVisibleMinHeight" format="dimension" />
         <attr name="isSeriesScroll" format="boolean" />
         <attr name="headScrollMode">
@@ -130,21 +131,13 @@
         <attr name="visibilityCount" format="integer" />
         <attr name="textGravity" format="integer">
             <flag name="top" value="0x30" />
-
             <flag name="bottom" value="0x50" />
-
             <flag name="left" value="0x03" />
-
             <flag name="right" value="0x05" />
-
             <flag name="center_vertical" value="0x10" />
-
             <flag name="center_horizontal" value="0x01" />
-
             <flag name="center" value="0x11" />
-
             <flag name="start" value="0x00800003" />
-
             <flag name="end" value="0x00800005" />
         </attr>
         <attr name="selectPosition" format="integer" />
@@ -154,6 +147,12 @@
     <declare-styleable name="CountDownView">
         <attr name="textSize" />
         <attr name="defaultTime" format="integer" />
+    </declare-styleable>
+
+
+    <!-- headerScrollView-->
+    <declare-styleable name="HeaderScrollView">
+        <attr name="top_offset" format="dimension" />
     </declare-styleable>
 
 </resources>

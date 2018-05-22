@@ -56,11 +56,10 @@ import java.util.List;
 import static android.support.v4.widget.ViewDragHelper.INVALID_POINTER;
 
 /**
- * Created by cai.jia on 2017/9/6 0006.
  * https://github.com/caijia/EmoticonWidget
  */
 
-public class ScrollingViewHeaderLayout extends FrameLayout implements NestedScrollingParent {
+public class HeaderLayout extends FrameLayout implements NestedScrollingParent {
 
     private static final String TAG = "viewPager_header_layout";
     private static final int SCROLL_MODE_SNAP = 1;
@@ -96,21 +95,21 @@ public class ScrollingViewHeaderLayout extends FrameLayout implements NestedScro
     private ValueAnimator animator;
     private boolean isSeriesScroll;
 
-    public ScrollingViewHeaderLayout(Context context) {
+    public HeaderLayout(Context context) {
         this(context, null);
     }
 
-    public ScrollingViewHeaderLayout(Context context, AttributeSet attrs) {
+    public HeaderLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public ScrollingViewHeaderLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public HeaderLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public ScrollingViewHeaderLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public HeaderLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs);
     }
@@ -118,10 +117,10 @@ public class ScrollingViewHeaderLayout extends FrameLayout implements NestedScro
     private void init(Context context, AttributeSet attrs) {
         TypedArray a = null;
         try {
-            a = context.obtainStyledAttributes(attrs, R.styleable.ScrollingViewHeaderLayout);
-            headVisibleMinHeight = a.getDimensionPixelOffset(R.styleable.ScrollingViewHeaderLayout_headVisibleMinHeight, 0);
-            scrollMode = a.getInt(R.styleable.ScrollingViewHeaderLayout_headScrollMode, SCROLL_MODE_NORMAL);
-            isSeriesScroll = a.getBoolean(R.styleable.ScrollingViewHeaderLayout_isSeriesScroll, false);
+            a = context.obtainStyledAttributes(attrs, R.styleable.HeaderLayout);
+            headVisibleMinHeight = a.getDimensionPixelOffset(R.styleable.HeaderLayout_headVisibleMinHeight, 0);
+            scrollMode = a.getInt(R.styleable.HeaderLayout_headScrollMode, SCROLL_MODE_NORMAL);
+            isSeriesScroll = a.getBoolean(R.styleable.HeaderLayout_isSeriesScroll, false);
 
         } finally {
             if (a != null) {
@@ -899,7 +898,7 @@ public class ScrollingViewHeaderLayout extends FrameLayout implements NestedScro
                             flingTarget(currVelocity);
 
                         } else {
-                            ViewCompat.postOnAnimation(ScrollingViewHeaderLayout.this, this);
+                            ViewCompat.postOnAnimation(HeaderLayout.this, this);
                         }
                         break;
                     }
@@ -911,7 +910,7 @@ public class ScrollingViewHeaderLayout extends FrameLayout implements NestedScro
                             mScroller.abortAnimation();
 
                         } else {
-                            ViewCompat.postOnAnimation(ScrollingViewHeaderLayout.this, this);
+                            ViewCompat.postOnAnimation(HeaderLayout.this, this);
                         }
                         break;
                     }
