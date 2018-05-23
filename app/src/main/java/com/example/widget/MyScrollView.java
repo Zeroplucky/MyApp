@@ -115,7 +115,6 @@ public class MyScrollView extends FrameLayout {
                 mIsBeingDragged = false;
                 recycleVelocityTracker();
                 break;
-
         }
         return mIsBeingDragged;
 
