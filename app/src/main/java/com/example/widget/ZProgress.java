@@ -25,6 +25,7 @@ public class ZProgress extends Dialog {
     private AnimationDrawable adProgressSpinner;
     private Context context;
 
+
     public static ZProgress getInstance(Context context) {
         instance = new ZProgress(context);
         return instance;
@@ -73,7 +74,6 @@ public class ZProgress extends Dialog {
             @Override
             public void run() {
                 adProgressSpinner.start();
-
             }
         });
     }

@@ -1,4 +1,4 @@
-package com.example.customwidget.widget;
+package com.example.customwidget.widget.custom1;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;

@@ -1,4 +1,4 @@
-package com.example.customwidget.widget;
+package com.example.customwidget.widget.custom1;
 
 import android.content.Context;
 import android.util.AttributeSet;

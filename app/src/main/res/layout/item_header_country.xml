@@ -4,7 +4,7 @@
     android:layout_height="50dp">
 
 
-    <com.example.customwidget.widget.HorizontalFlingLayout
+    <com.example.customwidget.widget.custom1.HorizontalFlingLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -24,7 +24,7 @@
             android:gravity="center"
             android:text="删除" />
 
-    </com.example.customwidget.widget.HorizontalFlingLayout>
+    </com.example.customwidget.widget.custom1.HorizontalFlingLayout>
 
 
 </FrameLayout>

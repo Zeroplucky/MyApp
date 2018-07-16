@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -19,16 +20,14 @@ import android.widget.TextView;
 
 import com.example.base.BaseActivity;
 import com.example.base.R;
+import com.example.utils.DisplayUtils;
 import com.example.utils.NetworkUtils;
 import com.example.widget.NestedScrollWebView;
+import com.example.widget.WebViewLongClickedPopWindow;
 import com.jaeger.library.StatusBarUtil;
 
 import butterknife.BindView;
 
-//import com.tencent.smtt.sdk.WebChromeClient;
-//import com.tencent.smtt.sdk.WebSettings;
-//import com.tencent.smtt.sdk.WebView;
-//import com.tencent.smtt.sdk.WebViewClient;
 
 public abstract class BaseWebViewActivity extends BaseActivity {
 
@@ -50,7 +49,7 @@ public abstract class BaseWebViewActivity extends BaseActivity {
     ProgressBar pvWeb;
 
     private int downX, downY;
-    //    private WebViewLongClickedPopWindow popWindow;
+    private WebViewLongClickedPopWindow popWindow;
     private String mImgurl;
 
 
@@ -67,21 +66,21 @@ public abstract class BaseWebViewActivity extends BaseActivity {
         initWebSetting(webView.getSettings());
         initWebView();
 
-//        popWindow = new WebViewLongClickedPopWindow(BaseWebViewActivity.this,
-//                WebViewLongClickedPopWindow.IMAGE_VIEW_POPUPWINDOW, DisplayUtils.dip2px
-//                (mContext, 120), ViewGroup.LayoutParams.WRAP_CONTENT);
-//
-//        popWindow.setOnItemClickListener(new WebViewLongClickedPopWindow.OnItemClickListener() {
-//            @Override
-//            public void onShowPicClicked() {
-////                mPresenter.gotoImageBrowseClicked(mImgurl);
-//            }
-//
-//            @Override
-//            public void onSavePicClicked() {
-////                mPresenter.saveImageClicked(BaseWebViewActivity.this, mImgurl);
-//            }
-//        });
+        popWindow = new WebViewLongClickedPopWindow(BaseWebViewActivity.this,
+                WebViewLongClickedPopWindow.IMAGE_VIEW_POPUPWINDOW, DisplayUtils.dip2px
+                (mContext, 120), ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        popWindow.setOnItemClickListener(new WebViewLongClickedPopWindow.OnItemClickListener() {
+            @Override
+            public void onShowPicClicked() {
+//                mPresenter.gotoImageBrowseClicked(mImgurl);
+            }
+
+            @Override
+            public void onSavePicClicked() {
+//                mPresenter.saveImageClicked(BaseWebViewActivity.this, mImgurl);
+            }
+        });
     }
 
 

@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.okgo_http.db.DaoMaster;
 import com.example.okgo_http.db.DaoSession;
 import com.example.okgo_http.db.DownInfoDao;
+import com.example.okgo_http.db.UserInfoDao;
 
 /**
  * Created by Administrator on 2018/4/2.
@@ -22,7 +23,7 @@ public class DBUtils {
      */
     public static void initDataBase(Context context) {
         //通过DaoMaster的内部类DevOpenHelper，可得到一个SQLiteOpenHelper对象。
-        DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(context, "downapk.db", null); //数据库名称
+        DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(context, "base.db", null); //数据库名称
         database = devOpenHelper.getWritableDatabase();
         DaoMaster daoMaster = new DaoMaster(database);
         daoSession = daoMaster.newSession();
@@ -38,6 +39,10 @@ public class DBUtils {
 
     public static DownInfoDao getDownInfoDao() {
         return daoSession.getDownInfoDao();
+    }
+
+    public static UserInfoDao getUserInfoDao() {
+        return daoSession.getUserInfoDao();
     }
 
 }

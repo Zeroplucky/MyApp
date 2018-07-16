@@ -1,6 +1,7 @@
 package com.example.coordinators.view;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.bumptech.glide.Glide;
 import com.example.coordinators.constant.Constants;
@@ -44,6 +45,7 @@ public class ZhihuWebActivity extends BaseWebViewActivity implements IZhihuDetai
         tvDetailTitle.setText(bean.getTitle());
         tvDetailcopyright.setText(bean.getImage_source());
         String htmlData = HtmlUtils.createHtmlData(bean.getBody(), bean.getCss(), bean.getJs());
+        Log.e("xxxxx", "showDailyDetail: " + htmlData);
         webView.loadData(htmlData, HtmlUtils.MIME_TYPE, HtmlUtils.ENCODING);
     }
 }

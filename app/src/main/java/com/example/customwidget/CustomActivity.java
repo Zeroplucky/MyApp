@@ -1,23 +1,23 @@
 package com.example.customwidget;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.util.Log;
+import android.widget.Button;
 
 import com.example.base.BaseActivity;
 import com.example.base.R;
+import com.example.okgo_http.db.UserInfoDao;
+import com.example.okgo_http.db.entity.UserInfo;
+import com.example.okgo_http.db.utils.DBUtils;
+
+import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class CustomActivity extends BaseActivity {
 
 
-    @BindView(R.id.textview)
-    TextView textview;
+    @BindView(R.id.btn)
+    Button btn;
 
     @Override
     protected int getContentViewId() {
@@ -28,11 +28,6 @@ public class CustomActivity extends BaseActivity {
     @Override
     protected void initView() {
 
-        textview.setOnClickListener((v) -> {
-                    Toast.makeText(mContext, "......", Toast.LENGTH_SHORT).show();
-
-                }
-        );
     }
 
 

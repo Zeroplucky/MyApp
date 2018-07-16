@@ -6,33 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.example.customwidget.CustomActivity">
 
-    <com.example.widget.MyScrollView
+    <Button
+        android:id="@+id/btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="#efe"
-                android:clickable="false"
-                android:enabled="false" />
-
-            <TextView
-                android:id="@+id/textview"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="#fef" />
-
-        </LinearLayout>
-
-
-    </com.example.widget.MyScrollView>
+        android:layout_height="100dp"
+        android:text="提交" />
 
 </RelativeLayout>
 
