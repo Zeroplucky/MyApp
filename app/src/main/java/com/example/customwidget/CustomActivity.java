@@ -1,6 +1,7 @@
 package com.example.customwidget;
 
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 
 import com.example.base.BaseActivity;
@@ -16,8 +17,6 @@ import butterknife.BindView;
 public class CustomActivity extends BaseActivity {
 
 
-    @BindView(R.id.btn)
-    Button btn;
 
     @Override
     protected int getContentViewId() {
@@ -31,4 +30,7 @@ public class CustomActivity extends BaseActivity {
     }
 
 
+    public void onClick(View view) {
+        toast("sssss");
+    }
 }

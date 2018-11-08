@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.customwidget.CustomActivity">
 
-    <Button
-        android:id="@+id/btn"
+    <com.example.customwidget.widget.BounceableRelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="提交" />
+        android:layout_height="match_parent">
 
-</RelativeLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#969"
+            android:onClick="onClick" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#67a3f5" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#edc534" />
+
+
+    </com.example.customwidget.widget.BounceableRelativeLayout>
+
+
+</LinearLayout>
 
