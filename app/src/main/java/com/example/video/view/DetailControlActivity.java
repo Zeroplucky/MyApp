@@ -38,7 +38,6 @@ public class DetailControlActivity extends GSYBaseActivityDetail {
         setContentView(R.layout.activity_detail_control_);
         ButterKnife.bind(this);
 
-
         //使用自定义的全屏切换图片，!!!注意xml布局中也需要设置为一样的
         //必须在setUp之前设置
         detailPlayer.setShrinkImageRes(R.drawable.custom_shrink);

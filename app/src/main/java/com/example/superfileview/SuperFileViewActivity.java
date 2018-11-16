@@ -116,7 +116,7 @@ public class SuperFileViewActivity extends BaseActivity {
                 path = "/storage/emulated/0/test.xlsx";
                 break;
             case 4:
-                path = "/storage/emulated/0/test.pptx";
+                path = "/storage/emulated/0/demo.ppt";
                 break;
             case 5:
                 path = "/storage/emulated/0/C基础总.pdf";
