@@ -48,7 +48,7 @@ https://www.jianshu.com/p/d2e17c360819
     }
 
   https://www.jianshu.com/p/ea0108d8510e
-/**
+  /**
   * 点击事件产生后
   */
   // 步骤1：调用dispatchTouchEvent（）
@@ -72,8 +72,3 @@ https://www.jianshu.com/p/d2e17c360819
 
     // 步骤3：最终返回通知 该事件是否被消费（接收 & 处理）
     return consume;
-
-作者：g小志
-链接：https://www.jianshu.com/p/ea0108d8510e
-來源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
