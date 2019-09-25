@@ -1,6 +1,6 @@
 
 
-https://www.jianshu.com/p/1dab927b2f36
+文章：https://www.jianshu.com/p/1dab927b2f36
 
 
 /**
@@ -41,3 +41,41 @@ https://www.jianshu.com/p/1dab927b2f36
  UNSPECIFIED  父容器不对 view 有任何限制，要多大给多大
  EXACTLY 父容器已经检测出 view 所需要的大小
  AT_MOST  父容器指定了一个大小， view 的大小不能大于这个值
+ 
+  ----------------------
+ View 的测量
+ @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        mViewWidth = measureWidth(widthMeasureSpec);
+        mViewHeight = measureHeight(heightMeasureSpec);
+        setMeasuredDimension(mViewWidth, mViewHeight);
+    }
+    
+    private int measureWidth(int measureSpec) {
+        int preferred = 300;
+        return getMeasurement(measureSpec, preferred);
+    }
+
+    private int measureHeight(int measureSpec) {
+        int preferred = mViewWidth;
+        return getMeasurement(measureSpec, preferred);
+    }
+
+    private int getMeasurement(int measureSpec, int preferred) {
+        int specSize = View.MeasureSpec.getSize(measureSpec);
+        int measurement;
+        switch (View.MeasureSpec.getMode(measureSpec)) {
+            case View.MeasureSpec.EXACTLY: // match_parent  , 固定值
+                measurement = specSize;
+                break;
+            case View.MeasureSpec.AT_MOST: // wrap_content
+                measurement = Math.min(preferred, specSize);
+                break;
+            default:
+                measurement = preferred;
+                break;
+        }
+        return measurement;
+    }
+ 
+ 
