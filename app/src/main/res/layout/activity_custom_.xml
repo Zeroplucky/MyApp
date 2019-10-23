@@ -7,28 +7,9 @@
     android:orientation="vertical"
     tools:context="com.example.customwidget.CustomActivity">
 
-    <com.example.customwidget.widget.BounceableRelativeLayout
+    <com.example.customwidget.widget.custom1.AnimationView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#969"
-            android:onClick="onClick" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#67a3f5" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#edc534" />
-
-
-    </com.example.customwidget.widget.BounceableRelativeLayout>
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>
