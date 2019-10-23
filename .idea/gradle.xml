@@ -8,12 +8,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/Javalib" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/emotionlib" />
-            <option value="$PROJECT_DIR$/gsyvideolib" />
-            <option value="$PROJECT_DIR$/sdklib" />
-            <option value="$PROJECT_DIR$/tbslib" />
+            <option value="$PROJECT_DIR$/library/emotionlib" />
+            <option value="$PROJECT_DIR$/library/gsyvideolib" />
+            <option value="$PROJECT_DIR$/library/sdklib" />
+            <option value="$PROJECT_DIR$/library/tbslib" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

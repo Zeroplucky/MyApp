@@ -1,5 +1,6 @@
-include ':app', ':Javalib'
-include ':sdklib'
-include ':emotionlib'
-include ':tbslib'
-include ':gsyvideolib'
+include ':app', ':sdklib', ':emotionlib', ':tbslib', ':gsyvideolib'
+
+project(':sdklib').projectDir = new File('library/sdklib')
+project(':emotionlib').projectDir = new File('library/emotionlib')
+project(':tbslib').projectDir = new File('library/tbslib')
+project(':gsyvideolib').projectDir = new File('library/gsyvideolib')
