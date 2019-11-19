@@ -1,13 +1,12 @@
 
-
+文章：https://juejin.im/post/5d5b703de51d45620923885c
 
 文章：https://blog.csdn.net/binbinqq86/article/details/82315399
 
 文章：https://www.jianshu.com/p/d2e17c360819
 
 外部拦截法
-
-// MyViewGroup
+    // MyViewGroup
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         switch (ev.getAction()) {
@@ -23,8 +22,7 @@
     }
 
 内部拦截法
-
-// MyViewGroup
+    // MyViewGroup
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         if (ev.getAction() == MotionEvent.ACTION_DOWN)
@@ -50,7 +48,8 @@
         return super.onTouchEvent(event);
     }
 
-  https://www.jianshu.com/p/ea0108d8510e
+ 文章： https://www.jianshu.com/p/ea0108d8510e
+
   /**
   * 点击事件产生后
   */
